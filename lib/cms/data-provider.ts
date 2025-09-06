@@ -15,57 +15,122 @@ import type { Product, Category, Recipe, Location } from '@/lib/cms/types';
 
 // Products
 export const getProducts = async (): Promise<Product[]> => {
-  return productsService.getAll();
+  try {
+    return await productsService.getAll();
+  } catch (error) {
+    console.warn('Failed to fetch products:', error);
+    return [];
+  }
 };
 
 export const getProductBySlug = async (slug: string): Promise<Product | null> => {
-  return productsService.getBySlug(slug);
+  try {
+    return await productsService.getBySlug(slug);
+  } catch (error) {
+    console.warn('Failed to fetch product by slug:', error);
+    return null;
+  }
 };
 
 export const getProductById = async (id: string): Promise<Product | null> => {
-  return productsService.getById(id);
+  try {
+    return await productsService.getById(id);
+  } catch (error) {
+    console.warn('Failed to fetch product by id:', error);
+    return null;
+  }
 };
 
 export const getProductsByCategory = async (categoryId: string): Promise<Product[]> => {
-  return getProductsByCategoryFirebase(categoryId);
+  try {
+    return await getProductsByCategoryFirebase(categoryId);
+  } catch (error) {
+    console.warn('Failed to fetch products by category:', error);
+    return [];
+  }
 };
 
 export const getFeaturedProducts = async (limit = 8): Promise<Product[]> => {
-  return getFeaturedProductsFirebase();
+  try {
+    return await getFeaturedProductsFirebase();
+  } catch (error) {
+    console.warn('Failed to fetch featured products:', error);
+    return [];
+  }
 };
 
 // Categories
 export const getCategories = async (): Promise<Category[]> => {
-  return getCategoriesOrdered();
+  try {
+    return await getCategoriesOrdered();
+  } catch (error) {
+    console.warn('Failed to fetch categories:', error);
+    return [];
+  }
 };
 
 export const getCategoryBySlug = async (slug: string): Promise<Category | null> => {
-  return categoriesService.getBySlug(slug);
+  try {
+    return await categoriesService.getBySlug(slug);
+  } catch (error) {
+    console.warn('Failed to fetch category by slug:', error);
+    return null;
+  }
 };
 
 export const getCategoryById = async (id: string): Promise<Category | null> => {
-  return categoriesService.getById(id);
+  try {
+    return await categoriesService.getById(id);
+  } catch (error) {
+    console.warn('Failed to fetch category by id:', error);
+    return null;
+  }
 };
 
 // Recipes
 export const getRecipes = async (): Promise<Recipe[]> => {
-  return recipesService.getAll();
+  try {
+    return await recipesService.getAll();
+  } catch (error) {
+    console.warn('Failed to fetch recipes:', error);
+    return [];
+  }
 };
 
 export const getRecipeBySlug = async (slug: string): Promise<Recipe | null> => {
-  return recipesService.getBySlug(slug);
+  try {
+    return await recipesService.getBySlug(slug);
+  } catch (error) {
+    console.warn('Failed to fetch recipe by slug:', error);
+    return null;
+  }
 };
 
 export const getRecipeById = async (id: string): Promise<Recipe | null> => {
-  return recipesService.getById(id);
+  try {
+    return await recipesService.getById(id);
+  } catch (error) {
+    console.warn('Failed to fetch recipe by id:', error);
+    return null;
+  }
 };
 
 export const getRecipesByProductId = async (productId: string): Promise<Recipe[]> => {
-  return getRecipesByProductIdFirebase(productId);
+  try {
+    return await getRecipesByProductIdFirebase(productId);
+  } catch (error) {
+    console.warn('Failed to fetch recipes by product id:', error);
+    return [];
+  }
 };
 
 export const getFeaturedRecipes = async (limit = 6): Promise<Recipe[]> => {
-  return getFeaturedRecipesFirebase();
+  try {
+    return await getFeaturedRecipesFirebase();
+  } catch (error) {
+    console.warn('Failed to fetch featured recipes:', error);
+    return [];
+  }
 };
 
 export async function getProductsByRecipeId(recipeId: string): Promise<Product[]> {
@@ -79,11 +144,21 @@ export async function getProductsByRecipeId(recipeId: string): Promise<Product[]
 
 // Locations
 export const getLocations = async (): Promise<Location[]> => {
-  return locationsService.getAll();
+  try {
+    return await locationsService.getAll();
+  } catch (error) {
+    console.warn('Failed to fetch locations:', error);
+    return [];
+  }
 };
 
 export const getLocationById = async (id: string): Promise<Location | null> => {
-  return locationsService.getById(id);
+  try {
+    return await locationsService.getById(id);
+  } catch (error) {
+    console.warn('Failed to fetch location by id:', error);
+    return null;
+  }
 };
 
 // Story posts and other content - keep JSON-based for now
