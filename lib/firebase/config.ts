@@ -5,8 +5,8 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
-// Check if we're in a build environment
-const isBuild = process.env.NODE_ENV === 'production' && typeof window === 'undefined';
+// Check if we're in a Vercel build environment
+const isVercelBuild = process.env.VERCEL === '1' && process.env.NODE_ENV === 'production';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,8 +20,8 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-PWYG73C90T"
 };
 
-// Initialize Firebase only if not in build environment
-const app = isBuild ? null : initializeApp(firebaseConfig);
+// Initialize Firebase only if not in Vercel build environment
+const app = isVercelBuild ? null : initializeApp(firebaseConfig);
 
 // Initialize Firebase services only if app is available
 export const db = app ? getFirestore(app) : null;
