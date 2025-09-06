@@ -5,6 +5,9 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
+// Check if we're in a build environment
+const isBuild = process.env.NODE_ENV === 'production' && typeof window === 'undefined';
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -17,17 +20,17 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-PWYG73C90T"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if not in build environment
+const app = isBuild ? null : initializeApp(firebaseConfig);
 
-// Initialize Firebase services
-export const db = getFirestore(app);
-export const storage = getStorage(app);
-export const auth = getAuth(app);
+// Initialize Firebase services only if app is available
+export const db = app ? getFirestore(app) : null;
+export const storage = app ? getStorage(app) : null;
+export const auth = app ? getAuth(app) : null;
 
 // Initialize Analytics (only on client side)
 let analytics: any = null;
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && app) {
   analytics = getAnalytics(app);
 }
 
