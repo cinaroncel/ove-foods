@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { AdminLocationList } from '@/components/admin/admin-location-list'
 
 export default function AdminLocationsPage() {

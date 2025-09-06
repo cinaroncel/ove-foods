@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { AdminRecipeList } from '@/components/admin/admin-recipe-list'
 
 export default function AdminRecipesPage() {
