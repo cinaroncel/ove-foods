@@ -1,10 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@vercel/next"
-    }
-  ],
   "env": {
     "NEXT_PUBLIC_FIREBASE_API_KEY": "AIzaSyCuM8UIRP1vxvu5F2aEoG9GaPtWJ80xKi4",
     "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN": "ove-foods.firebaseapp.com",
@@ -14,10 +8,5 @@
     "NEXT_PUBLIC_FIREBASE_APP_ID": "1:402049052326:web:81934fb0b78e522e7b0e67",
     "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-PWYG73C90T",
     "NEXT_PUBLIC_ADMIN_PASSWORD": "admin123"
-  },
-  "functions": {
-    "app/**": {
-      "runtime": "nodejs18.x"
-    }
   }
 }
