@@ -21,7 +21,6 @@ export class FirestoreService<T> {
   constructor(private collectionName: string) {}
 
   async getAll(): Promise<T[]> {
-    if (!db) return [];
     const querySnapshot = await getDocs(collection(db, this.collectionName));
     return querySnapshot.docs.map(doc => ({
       id: doc.id,
@@ -30,7 +29,6 @@ export class FirestoreService<T> {
   }
 
   async getById(id: string): Promise<T | null> {
-    if (!db) return null;
     const docRef = doc(db, this.collectionName, id);
     const docSnap = await getDoc(docRef);
     
@@ -44,7 +42,6 @@ export class FirestoreService<T> {
   }
 
   async getBySlug(slug: string): Promise<T | null> {
-    if (!db) return null;
     const q = query(
       collection(db, this.collectionName), 
       where("slug", "==", slug),
@@ -63,25 +60,21 @@ export class FirestoreService<T> {
   }
 
   async create(data: Omit<T, 'id'>): Promise<string> {
-    if (!db) throw new Error('Database not available');
     const docRef = await addDoc(collection(db, this.collectionName), data);
     return docRef.id;
   }
 
   async update(id: string, data: Partial<T>): Promise<void> {
-    if (!db) throw new Error('Database not available');
     const docRef = doc(db, this.collectionName, id);
     await updateDoc(docRef, data as any);
   }
 
   async delete(id: string): Promise<void> {
-    if (!db) throw new Error('Database not available');
     const docRef = doc(db, this.collectionName, id);
     await deleteDoc(docRef);
   }
 
   async getWhere(field: string, operator: any, value: any): Promise<T[]> {
-    if (!db) return [];
     const q = query(
       collection(db, this.collectionName),
       where(field, operator, value)
@@ -94,7 +87,6 @@ export class FirestoreService<T> {
   }
 
   async getOrdered(orderField: string, direction: 'asc' | 'desc' = 'asc'): Promise<T[]> {
-    if (!db) return [];
     const q = query(
       collection(db, this.collectionName),
       orderBy(orderField, direction)
