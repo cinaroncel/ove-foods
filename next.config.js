@@ -8,6 +8,17 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Skip admin routes during static generation
+  exportPathMap: function () {
+    return {
+      '/': { page: '/' },
+      '/products': { page: '/products' },
+      '/recipes': { page: '/recipes' },
+      '/our-story': { page: '/our-story' },
+      '/sustainability': { page: '/sustainability' },
+      '/contact': { page: '/contact' },
+    };
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
