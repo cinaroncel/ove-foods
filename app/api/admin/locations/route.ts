@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { locationsService } from '@/lib/firebase/firestore'
+export const dynamic = 'force-dynamic'
 import { isAdminAuthenticated } from '@/lib/auth/admin-auth'
 
 export async function GET(request: NextRequest) {

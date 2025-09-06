@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { recipesService } from '@/lib/firebase/firestore'
+export const dynamic = 'force-dynamic'
 import { isAdminAuthenticated } from '@/lib/auth/admin-auth'
 
 export async function GET(request: NextRequest) {
