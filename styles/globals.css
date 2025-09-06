@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 24 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 30% 12%;
+    --primary: 28 80% 52%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 15% 94%;
+    --secondary-foreground: 24 30% 12%;
+    --muted: 40 15% 94%;
+    --muted-foreground: 24 20% 40%;
+    --accent: 145 60% 35%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 28 80% 52%;
+    --radius: 0.5rem;
+
+    /* OVE Foods Brand Colors */
+    --brand-primary: 28 80% 52%; /* Warm golden olive */
+    --brand-accent: 145 60% 35%; /* Deep sage green */
+    --brand-warm: 35 85% 65%; /* Warm amber */
+    --brand-earth: 25 45% 25%; /* Rich earth brown */
+  }
+
+  .dark {
+    --background: 24 30% 8%;
+    --foreground: 40 33% 95%;
+    --card: 24 30% 10%;
+    --card-foreground: 40 33% 95%;
+    --popover: 24 30% 10%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 28 80% 52%;
+    --primary-foreground: 24 30% 8%;
+    --secondary: 24 20% 15%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 24 20% 15%;
+    --muted-foreground: 40 15% 60%;
+    --accent: 145 60% 35%;
+    --accent-foreground: 40 33% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 33% 95%;
+    --border: 24 20% 20%;
+    --input: 24 20% 20%;
+    --ring: 28 80% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Skip to content link */
+  .skip-link {
+    @apply absolute left-4 top-4 z-50 -translate-y-16 transform bg-primary px-4 py-2 text-primary-foreground transition-transform focus:translate-y-0;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) hsl(var(--muted));
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 3px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1 { font-size: 18pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 14pt; }
+}

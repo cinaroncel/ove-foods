@@ -1,0 +1,243 @@
+'use client'
+
+import * as React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+const navigationItems = [
+  {
+    label: 'Products',
+    href: '/products',
+    children: [
+      { label: 'Olive Oils', href: '/categories/olive-oils' },
+      { label: 'Vinegars', href: '/categories/vinegars' },
+      { label: 'Cooking Sprays', href: '/categories/cooking-sprays' },
+      { label: 'Specialty Products', href: '/categories/specialty' },
+    ]
+  },
+  {
+    label: 'Recipes',
+    href: '/recipes'
+  },
+  {
+    label: 'Our Story',
+    href: '/our-story'
+  },
+  {
+    label: 'Sustainability',
+    href: '/sustainability'
+  }
+]
+
+export function Nav() {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
+  const pathname = usePathname()
+
+  // Close mobile menu when route changes
+  React.useEffect(() => {
+    setIsOpen(false)
+    setActiveDropdown(null)
+  }, [pathname])
+
+  // Handle escape key
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false)
+        setActiveDropdown(null)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
+
+  const toggleDropdown = (label: string) => {
+    setActiveDropdown(activeDropdown === label ? null : label)
+  }
+
+  const isActivePath = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="container mx-auto flex h-16 items-center justify-between px-4" role="navigation" aria-label="Main navigation">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 focus-visible-ring">
+          <Image
+            src="/assets/logo.png"
+            alt="OVE Foods"
+            width={150}
+            height={50}
+            priority
+            className="h-10 w-auto"
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex md:items-center md:space-x-8">
+          {navigationItems.map((item) => (
+            <div key={item.label} className="relative">
+              {item.children ? (
+                <div className="group">
+                  <button
+                    className={cn(
+                      "flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary focus-visible-ring",
+                      isActivePath(item.href) ? "text-primary" : "text-foreground"
+                    )}
+                    aria-expanded={activeDropdown === item.label}
+                    aria-controls={`dropdown-${item.label}`}
+                    onMouseEnter={() => setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+
+                  <AnimatePresence>
+                    {activeDropdown === item.label && (
+                      <motion.div
+                        id={`dropdown-${item.label}`}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute left-0 top-full mt-2 w-48 rounded-md border bg-popover p-1 shadow-md"
+                        onMouseEnter={() => setActiveDropdown(item.label)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href as any}
+                            className="block rounded-sm px-3 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  href={item.href as any}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary focus-visible-ring",
+                    isActivePath(item.href) ? "text-primary" : "text-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="hidden md:flex">
+          <Button asChild>
+            <Link href="/contact">Contact Us</Link>
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </Button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="border-t bg-background md:hidden"
+          >
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              {navigationItems.map((item) => (
+                <div key={item.label} className="space-y-2">
+                  {item.children ? (
+                    <>
+                      <button
+                        className={cn(
+                          "flex w-full items-center justify-between text-left text-sm font-medium focus-visible-ring",
+                          isActivePath(item.href) ? "text-primary" : "text-foreground"
+                        )}
+                        onClick={() => toggleDropdown(item.label)}
+                        aria-expanded={activeDropdown === item.label}
+                      >
+                        {item.label}
+                        <ChevronDown 
+                          className={cn(
+                            "h-4 w-4 transition-transform",
+                            activeDropdown === item.label && "rotate-180"
+                          )} 
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {activeDropdown === item.label && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="ml-4 space-y-2"
+                          >
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href as any}
+                                className="block text-sm text-muted-foreground hover:text-foreground focus-visible-ring"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href as any}
+                      className={cn(
+                        "block text-sm font-medium focus-visible-ring",
+                        isActivePath(item.href) ? "text-primary" : "text-foreground"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="pt-4">
+                <Button asChild className="w-full">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  )
+}

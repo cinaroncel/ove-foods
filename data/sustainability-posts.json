@@ -1,0 +1,53 @@
+[
+  {
+    "id": "sustainable-sourcing",
+    "slug": "sustainable-sourcing",
+    "title": "Sustainable Sourcing Practices",
+    "coverImage": "sustainable-sourcing.jpg",
+    "excerpt": "How we work with local farmers to maintain traditional cultivation methods while protecting the environment.",
+    "content": "Our sustainable sourcing begins with building long-term relationships with local farmers who share our commitment to environmental stewardship. We support traditional olive cultivation methods that have been used for centuries, including dry farming techniques that conserve water and maintain soil health. Our farmers avoid synthetic pesticides and fertilizers, instead relying on natural pest control and organic composting. This approach not only produces superior olives but also preserves the biodiversity of our Mediterranean ecosystems.",
+    "pillar": "sourcing",
+    "badges": [
+      { "label": "Organic Certified", "icon": "organic.svg" },
+      { "label": "Fair Trade", "icon": "fair-trade.svg" }
+    ],
+    "resources": [
+      { "label": "Sustainable Farming Guide", "url": "/resources/farming-guide.pdf" },
+      { "label": "Organic Certification", "url": "/resources/organic-cert.pdf" }
+    ]
+  },
+  {
+    "id": "environmental-impact",
+    "slug": "environmental-impact",
+    "title": "Minimizing Environmental Impact",
+    "coverImage": "environmental-impact.jpg",
+    "excerpt": "Our comprehensive approach to reducing our environmental footprint through renewable energy and waste reduction.",
+    "content": "We've implemented comprehensive environmental management systems across all our facilities. Our production plants are powered by 95% renewable energy through solar panels and wind turbines. We've reduced water consumption by 40% through innovative recycling systems and efficient processing techniques. Our packaging is made from recycled materials, and we've eliminated single-use plastics in our operations. Additionally, we offset any remaining carbon emissions through verified reforestation projects in the Mediterranean region.",
+    "pillar": "environment",
+    "badges": [
+      { "label": "Carbon Neutral", "icon": "carbon-neutral.svg" },
+      { "label": "Renewable Energy", "icon": "renewable.svg" }
+    ],
+    "resources": [
+      { "label": "Environmental Impact Report", "url": "/resources/environmental-report.pdf" },
+      { "label": "Carbon Neutral Certification", "url": "/resources/carbon-cert.pdf" }
+    ]
+  },
+  {
+    "id": "community-support",
+    "slug": "community-support",
+    "title": "Supporting Local Communities",
+    "coverImage": "community-support.jpg",
+    "excerpt": "How we invest in the communities where we operate, preserving traditions and supporting economic development.",
+    "content": "Our commitment extends beyond environmental sustainability to social responsibility. We provide fair wages and benefits to all our workers and support local educational programs focused on traditional olive cultivation. We've established scholarship funds for young farmers and sponsor cultural events that celebrate Mediterranean heritage. Our community investment program has helped revitalize rural areas, providing economic opportunities while preserving traditional ways of life. We also partner with local cooperatives to ensure small-scale farmers have access to premium markets.",
+    "pillar": "community",
+    "badges": [
+      { "label": "Community Partner", "icon": "community.svg" },
+      { "label": "Education Supporter", "icon": "education.svg" }
+    ],
+    "resources": [
+      { "label": "Community Impact Report", "url": "/resources/community-report.pdf" },
+      { "label": "Scholarship Program", "url": "/resources/scholarship-info.pdf" }
+    ]
+  }
+]

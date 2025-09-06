@@ -1,0 +1,44 @@
+[
+  {
+    "id": "headquarters",
+    "type": "Headquarters",
+    "name": "OVE Foods Headquarters",
+    "address": {
+      "street": "Folkart Time, Kazım Dirik Dist. 284 Str. No:2, Gate No:112",
+      "city": "Bornova",
+      "region": "Izmir",
+      "postal": "35040",
+      "country": "Turkey"
+    },
+    "phone": "+90 (232) 683 30 21",
+    "fax": "+90 (232) 683 30 22",
+    "email": "info@ovefoods.com",
+    "hours": "Monday - Friday: 9:00 AM - 6:00 PM",
+    "mapUrl": "https://maps.google.com/?q=Folkart+Time,Bornova,Izmir,Turkey",
+    "coordinates": {
+      "lat": 38.4237,
+      "lng": 27.1428
+    }
+  },
+  {
+    "id": "factory",
+    "type": "Factory",
+    "name": "OVE Foods Production Factory",
+    "address": {
+      "street": "Carsi Mah. Safak Str. No:7",
+      "city": "Kosk",
+      "region": "Aydin",
+      "postal": "09600",
+      "country": "Turkey"
+    },
+    "phone": "+90 (256) 461 34 54",
+    "fax": "+90 (232) 461 34 55",
+    "email": "info@ovefoods.com",
+    "hours": "Monday - Saturday: 7:00 AM - 5:00 PM",
+    "mapUrl": "https://maps.google.com/?q=Kosk,Aydin,Turkey",
+    "coordinates": {
+      "lat": 37.8444,
+      "lng": 27.8458
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "carbon-neutral",
+    "label": "Carbon Neutral Operations",
+    "value": "100%",
+    "description": "All our facilities operate with net-zero carbon emissions through renewable energy and offset programs",
+    "icon": "leaf"
+  },
+  {
+    "id": "organic-certified",
+    "label": "Organic Certified Products",
+    "value": "85%",
+    "description": "Over 85% of our product line is certified organic, supporting sustainable farming practices",
+    "icon": "check-circle"
+  },
+  {
+    "id": "water-conservation",
+    "label": "Water Conservation",
+    "value": "40%",
+    "description": "Reduced water usage by 40% through innovative processing techniques and recycling systems",
+    "icon": "droplet"
+  },
+  {
+    "id": "local-sourcing",
+    "label": "Local Sourcing",
+    "value": "90%",
+    "description": "90% of our olives are sourced within 50 miles of our processing facilities",
+    "icon": "map-pin"
+  },
+  {
+    "id": "renewable-energy",
+    "label": "Renewable Energy",
+    "value": "95%",
+    "description": "95% of our energy comes from solar and wind sources at all production facilities",
+    "icon": "sun"
+  },
+  {
+    "id": "waste-reduction",
+    "label": "Waste Reduction",
+    "value": "75%",
+    "description": "Reduced production waste by 75% through circular economy principles and byproduct utilization",
+    "icon": "recycle"
+  }
+]

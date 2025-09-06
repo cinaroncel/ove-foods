@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Product images - read access for everyone, write access for admin only
+    match /products/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+    }
+    
+    // Recipe images - read access for everyone, write access for admin only
+    match /recipes/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+    }
+    
+    // Category images - read access for everyone, write access for admin only
+    match /categories/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+    }
+    
+    // Story images - read access for everyone, write access for admin only
+    match /stories/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+    }
+    
+    // General assets - read access for everyone, write access for admin only
+    match /assets/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+    }
+  }
+}

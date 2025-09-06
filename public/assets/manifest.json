@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "file": "premium-evoo-bottle.jpg",
+      "title": "Premium Extra Virgin Olive Oil Bottle",
+      "alt": "Premium extra virgin olive oil bottle with golden oil and Mediterranean landscape in background"
+    },
+    {
+      "file": "classic-olive-oil-bottle.jpg", 
+      "title": "Classic Olive Oil Bottle",
+      "alt": "Classic olive oil bottle in modern kitchen setting with cooking ingredients"
+    },
+    {
+      "file": "herb-infused-bottle.jpg",
+      "title": "Mediterranean Herb Infused Olive Oil",
+      "alt": "Herb infused olive oil bottle surrounded by fresh rosemary, thyme, and oregano"
+    },
+    {
+      "file": "aged-balsamic-bottle.jpg",
+      "title": "18-Year Aged Balsamic Vinegar",
+      "alt": "Luxury aged balsamic vinegar bottle with traditional wooden barrels in background"
+    },
+    {
+      "file": "white-wine-vinegar-bottle.jpg",
+      "title": "Premium White Wine Vinegar",
+      "alt": "White wine vinegar bottle with fresh salad ingredients and vinaigrette preparation"
+    },
+    {
+      "file": "olive-oil-spray-bottle.jpg",
+      "title": "Pure Olive Oil Cooking Spray",
+      "alt": "Olive oil cooking spray bottle being used on grilling vegetables"
+    },
+    {
+      "file": "lemon-olive-oil-bottle.jpg",
+      "title": "Lemon Infused Olive Oil",
+      "alt": "Lemon infused olive oil bottle with fresh lemons and citrus zest"
+    },
+    {
+      "file": "truffle-oil-bottle.jpg",
+      "title": "Black Truffle Olive Oil",
+      "alt": "Luxury black truffle olive oil bottle with fresh truffles and pasta dish"
+    },
+    {
+      "file": "red-wine-vinegar-bottle.jpg",
+      "title": "Aged Red Wine Vinegar",
+      "alt": "Red wine vinegar bottle with oak barrels and meat marinade preparation"
+    },
+    {
+      "file": "garlic-oil-bottle.jpg",
+      "title": "Roasted Garlic Olive Oil",
+      "alt": "Roasted garlic olive oil bottle with golden roasted garlic cloves and bread"
+    }
+  ],
+  "facility": [
+    {
+      "file": "tuscany-facility.jpg",
+      "title": "Tuscany Production Facility",
+      "alt": "Modern olive oil production facility in Tuscany with traditional stone buildings and olive groves"
+    },
+    {
+      "file": "olive-grove-tuscany.jpg",
+      "title": "Historic Olive Grove in Tuscany",
+      "alt": "Ancient olive trees in rolling Tuscan hills with golden sunlight filtering through branches"
+    },
+    {
+      "file": "wooden-barrels.jpg",
+      "title": "Traditional Aging Barrels",
+      "alt": "Traditional wooden barrels for aging balsamic vinegar in climate-controlled facility"
+    },
+    {
+      "file": "solar-panels.jpg",
+      "title": "Sustainable Energy Installation",
+      "alt": "Solar panels on olive oil production facility roof with olive groves in background"
+    }
+  ],
+  "recipes": [
+    {
+      "file": "mediterranean-salad-hero.jpg",
+      "title": "Classic Mediterranean Salad",
+      "alt": "Fresh Mediterranean salad with mixed greens, tomatoes, olives, and feta cheese drizzled with olive oil"
+    },
+    {
+      "file": "herb-chicken-hero.jpg",
+      "title": "Mediterranean Herb-Crusted Chicken",
+      "alt": "Golden herb-crusted chicken breast with Mediterranean herbs and olive oil glaze"
+    },
+    {
+      "file": "aglio-olio-hero.jpg",
+      "title": "Spaghetti Aglio e Olio",
+      "alt": "Classic Italian spaghetti aglio e olio with garlic, olive oil, and fresh parsley"
+    },
+    {
+      "file": "salmon-balsamic-hero.jpg",
+      "title": "Balsamic Glazed Salmon",
+      "alt": "Perfectly cooked salmon fillet with rich balsamic glaze and fresh herbs"
+    },
+    {
+      "file": "roasted-veggies-hero.jpg",
+      "title": "Mediterranean Roasted Vegetables",
+      "alt": "Colorful roasted vegetables with olive oil, herbs, and Mediterranean seasonings"
+    },
+    {
+      "file": "caprese-hero.jpg",
+      "title": "Classic Caprese Salad",
+      "alt": "Traditional caprese salad with fresh mozzarella, tomatoes, basil, and balsamic drizzle"
+    }
+  ],
+  "general": [
+    {
+      "file": "hero-home.jpg",
+      "title": "Mediterranean Olive Oil Heritage",
+      "alt": "Premium olive oil being poured over fresh Mediterranean ingredients with golden sunlight"
+    },
+    {
+      "file": "story-hero.jpg",
+      "title": "Our Heritage Story",
+      "alt": "Historic olive grove in Tuscany with ancient trees and traditional stone farmhouse"
+    },
+    {
+      "file": "sustainability-hero.jpg",
+      "title": "Sustainable Production",
+      "alt": "Solar panels on olive oil facility with sustainable farming practices and olive groves"
+    },
+    {
+      "file": "logo.svg",
+      "title": "OVE Foods Logo",
+      "alt": "OVE Foods company logo"
+    },
+    {
+      "file": "og-image.jpg",
+      "title": "OVE Foods Social Media Image",
+      "alt": "OVE Foods premium olive oil products with Mediterranean landscape background"
+    }
+  ]
+}

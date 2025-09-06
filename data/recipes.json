@@ -1,0 +1,217 @@
+[
+  {
+    "id": "mediterranean-salad",
+    "slug": "mediterranean-salad",
+    "title": "Classic Mediterranean Salad",
+    "heroImage": "mediterranean-salad-hero.jpg",
+    "description": "A vibrant and fresh salad featuring the best of Mediterranean flavors with our premium olive oil.",
+    "ingredients": [
+      { "item": "Mixed greens", "quantity": 6, "unit": "cups" },
+      { "item": "Cherry tomatoes", "quantity": 2, "unit": "cups", "notes": "halved" },
+      { "item": "Cucumber", "quantity": 1, "unit": "large", "notes": "diced" },
+      { "item": "Red onion", "quantity": 0.5, "unit": "medium", "notes": "thinly sliced" },
+      { "item": "Kalamata olives", "quantity": 0.5, "unit": "cup" },
+      { "item": "Feta cheese", "quantity": 4, "unit": "oz", "notes": "crumbled" },
+      { "item": "OVE Premium Extra Virgin Olive Oil", "quantity": 3, "unit": "tbsp" },
+      { "item": "Fresh lemon juice", "quantity": 2, "unit": "tbsp" },
+      { "item": "Dried oregano", "quantity": 1, "unit": "tsp" },
+      { "item": "Salt and pepper", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "In a large salad bowl, combine mixed greens, cherry tomatoes, cucumber, and red onion.",
+      "Add Kalamata olives and crumbled feta cheese to the bowl.",
+      "In a small bowl, whisk together OVE Premium Extra Virgin Olive Oil, lemon juice, oregano, salt, and pepper.",
+      "Drizzle the dressing over the salad and toss gently to combine.",
+      "Serve immediately as a side dish or add grilled chicken for a complete meal."
+    ],
+    "times": {
+      "prep": 15,
+      "cook": 0
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "gluten-free", "mediterranean", "healthy", "quick"],
+    "relatedProductIds": ["extra-virgin-olive-oil-premium"],
+    "difficulty": "easy",
+    "featured": true,
+    "seo": {
+      "title": "Classic Mediterranean Salad Recipe with Premium Olive Oil",
+      "description": "Fresh and vibrant Mediterranean salad featuring premium olive oil, feta cheese, and garden vegetables. Ready in 15 minutes!"
+    }
+  },
+  {
+    "id": "herb-crusted-chicken",
+    "slug": "herb-crusted-chicken",
+    "title": "Mediterranean Herb-Crusted Chicken",
+    "heroImage": "herb-chicken-hero.jpg",
+    "description": "Juicy chicken breasts coated in aromatic Mediterranean herbs and cooked to perfection with olive oil.",
+    "ingredients": [
+      { "item": "Chicken breasts", "quantity": 4, "unit": "pieces", "notes": "boneless, skinless" },
+      { "item": "OVE Mediterranean Herb Infused Olive Oil", "quantity": 3, "unit": "tbsp" },
+      { "item": "Fresh breadcrumbs", "quantity": 1, "unit": "cup" },
+      { "item": "Parmesan cheese", "quantity": 0.5, "unit": "cup", "notes": "grated" },
+      { "item": "Fresh parsley", "quantity": 2, "unit": "tbsp", "notes": "chopped" },
+      { "item": "Garlic", "quantity": 2, "unit": "cloves", "notes": "minced" },
+      { "item": "Lemon zest", "quantity": 1, "unit": "tsp" },
+      { "item": "Salt and pepper", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "Preheat oven to 400°F (200°C). Line a baking sheet with parchment paper.",
+      "Pat chicken breasts dry and season with salt and pepper.",
+      "In a bowl, combine breadcrumbs, Parmesan cheese, parsley, garlic, and lemon zest.",
+      "Brush chicken breasts with OVE Mediterranean Herb Infused Olive Oil on both sides.",
+      "Press the breadcrumb mixture onto the chicken, coating evenly.",
+      "Place on prepared baking sheet and bake for 20-25 minutes until internal temperature reaches 165°F.",
+      "Let rest for 5 minutes before serving."
+    ],
+    "times": {
+      "prep": 15,
+      "cook": 25
+    },
+    "servings": 4,
+    "tags": ["protein", "mediterranean", "herbs", "baked", "dinner"],
+    "relatedProductIds": ["herb-infused-olive-oil"],
+    "difficulty": "medium",
+    "featured": true
+  },
+  {
+    "id": "pasta-aglio-olio",
+    "slug": "pasta-aglio-olio",
+    "title": "Spaghetti Aglio e Olio",
+    "heroImage": "aglio-olio-hero.jpg",
+    "description": "The classic Italian pasta dish featuring garlic, olive oil, and red pepper flakes in perfect harmony.",
+    "ingredients": [
+      { "item": "Spaghetti", "quantity": 1, "unit": "lb" },
+      { "item": "OVE Premium Extra Virgin Olive Oil", "quantity": 0.5, "unit": "cup" },
+      { "item": "Garlic", "quantity": 6, "unit": "cloves", "notes": "thinly sliced" },
+      { "item": "Red pepper flakes", "quantity": 0.5, "unit": "tsp" },
+      { "item": "Fresh parsley", "quantity": 0.25, "unit": "cup", "notes": "chopped" },
+      { "item": "Parmesan cheese", "quantity": 0.5, "unit": "cup", "notes": "grated" },
+      { "item": "Salt", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "Bring a large pot of salted water to boil. Cook spaghetti according to package directions until al dente.",
+      "Reserve 1 cup of pasta cooking water before draining.",
+      "In a large skillet, heat olive oil over medium heat.",
+      "Add sliced garlic and red pepper flakes. Cook until garlic is golden, about 2-3 minutes.",
+      "Add drained pasta to the skillet with garlic oil.",
+      "Toss pasta with the oil, adding pasta water as needed to create a silky sauce.",
+      "Remove from heat, add parsley and half the Parmesan cheese.",
+      "Serve immediately with remaining cheese on top."
+    ],
+    "times": {
+      "prep": 10,
+      "cook": 15
+    },
+    "servings": 4,
+    "tags": ["pasta", "italian", "vegetarian", "quick", "classic"],
+    "relatedProductIds": ["extra-virgin-olive-oil-premium", "garlic-olive-oil"],
+    "difficulty": "easy",
+    "featured": true
+  },
+  {
+    "id": "balsamic-glazed-salmon",
+    "slug": "balsamic-glazed-salmon",
+    "title": "Balsamic Glazed Salmon",
+    "heroImage": "salmon-balsamic-hero.jpg",
+    "description": "Perfectly cooked salmon with a rich and tangy balsamic glaze that caramelizes beautifully.",
+    "ingredients": [
+      { "item": "Salmon fillets", "quantity": 4, "unit": "pieces", "notes": "6 oz each" },
+      { "item": "OVE 18-Year Aged Balsamic Vinegar", "quantity": 0.25, "unit": "cup" },
+      { "item": "Honey", "quantity": 2, "unit": "tbsp" },
+      { "item": "OVE Classic Olive Oil", "quantity": 2, "unit": "tbsp" },
+      { "item": "Garlic", "quantity": 2, "unit": "cloves", "notes": "minced" },
+      { "item": "Fresh thyme", "quantity": 1, "unit": "tsp" },
+      { "item": "Salt and pepper", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "Preheat oven to 425°F (220°C). Line a baking sheet with parchment paper.",
+      "Season salmon fillets with salt and pepper.",
+      "In a small saucepan, combine balsamic vinegar, honey, and garlic. Simmer until reduced by half.",
+      "Heat olive oil in an oven-safe skillet over medium-high heat.",
+      "Sear salmon skin-side up for 3-4 minutes until golden.",
+      "Flip salmon and brush with balsamic glaze. Sprinkle with thyme.",
+      "Transfer skillet to oven and bake for 6-8 minutes until salmon flakes easily.",
+      "Serve immediately with remaining glaze drizzled on top."
+    ],
+    "times": {
+      "prep": 10,
+      "cook": 20
+    },
+    "servings": 4,
+    "tags": ["seafood", "protein", "elegant", "dinner", "gluten-free"],
+    "relatedProductIds": ["aged-balsamic-vinegar", "classic-olive-oil"],
+    "difficulty": "medium",
+    "featured": true
+  },
+  {
+    "id": "roasted-vegetables",
+    "slug": "roasted-vegetables",
+    "title": "Mediterranean Roasted Vegetables",
+    "heroImage": "roasted-veggies-hero.jpg",
+    "description": "Colorful seasonal vegetables roasted to perfection with olive oil and Mediterranean herbs.",
+    "ingredients": [
+      { "item": "Zucchini", "quantity": 2, "unit": "medium", "notes": "sliced" },
+      { "item": "Bell peppers", "quantity": 2, "unit": "large", "notes": "mixed colors, chunked" },
+      { "item": "Red onion", "quantity": 1, "unit": "large", "notes": "wedged" },
+      { "item": "Cherry tomatoes", "quantity": 2, "unit": "cups" },
+      { "item": "OVE Pure Olive Oil Cooking Spray", "quantity": 1, "unit": "as needed" },
+      { "item": "OVE Premium Extra Virgin Olive Oil", "quantity": 2, "unit": "tbsp", "notes": "for finishing" },
+      { "item": "Fresh rosemary", "quantity": 2, "unit": "sprigs" },
+      { "item": "Fresh thyme", "quantity": 1, "unit": "tbsp" },
+      { "item": "Salt and pepper", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "Preheat oven to 425°F (220°C). Line a large baking sheet with parchment paper.",
+      "Cut all vegetables into similar-sized pieces for even cooking.",
+      "Spray baking sheet with OVE Olive Oil Cooking Spray.",
+      "Arrange vegetables on the baking sheet in a single layer.",
+      "Season with salt, pepper, rosemary, and thyme.",
+      "Roast for 25-30 minutes, stirring once halfway through.",
+      "Drizzle with premium olive oil before serving.",
+      "Serve hot as a side dish or over quinoa for a complete meal."
+    ],
+    "times": {
+      "prep": 15,
+      "cook": 30
+    },
+    "servings": 6,
+    "tags": ["vegetarian", "vegan", "healthy", "side-dish", "mediterranean"],
+    "relatedProductIds": ["olive-oil-spray", "extra-virgin-olive-oil-premium"],
+    "difficulty": "easy",
+    "featured": false
+  },
+  {
+    "id": "caprese-salad",
+    "slug": "caprese-salad",
+    "title": "Classic Caprese Salad",
+    "heroImage": "caprese-hero.jpg",
+    "description": "The quintessential Italian salad with fresh mozzarella, tomatoes, basil, and aged balsamic.",
+    "ingredients": [
+      { "item": "Fresh mozzarella", "quantity": 1, "unit": "lb", "notes": "sliced" },
+      { "item": "Large tomatoes", "quantity": 3, "unit": "ripe", "notes": "sliced" },
+      { "item": "Fresh basil leaves", "quantity": 0.25, "unit": "cup" },
+      { "item": "OVE Premium Extra Virgin Olive Oil", "quantity": 3, "unit": "tbsp" },
+      { "item": "OVE 18-Year Aged Balsamic Vinegar", "quantity": 2, "unit": "tbsp" },
+      { "item": "Sea salt", "quantity": 1, "unit": "to taste" },
+      { "item": "Black pepper", "quantity": 1, "unit": "to taste" }
+    ],
+    "steps": [
+      "Arrange alternating slices of tomato and mozzarella on a serving platter.",
+      "Tuck fresh basil leaves between the tomato and mozzarella slices.",
+      "Drizzle the premium olive oil evenly over the salad.",
+      "Follow with a drizzle of aged balsamic vinegar.",
+      "Season with sea salt and freshly cracked black pepper.",
+      "Let stand for 10 minutes to allow flavors to meld.",
+      "Serve at room temperature with crusty bread."
+    ],
+    "times": {
+      "prep": 15,
+      "cook": 0
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "italian", "fresh", "appetizer", "no-cook"],
+    "relatedProductIds": ["extra-virgin-olive-oil-premium", "aged-balsamic-vinegar"],
+    "difficulty": "easy",
+    "featured": true
+  }
+]

@@ -1,0 +1,18 @@
+'use client'
+
+import { AdminProductList } from '@/components/admin/admin-product-list'
+
+export default function AdminProductsPage() {
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Products</h1>
+          <p className="text-gray-600">Manage your product catalog</p>
+        </div>
+      </div>
+      
+      <AdminProductList />
+    </div>
+  )
+}

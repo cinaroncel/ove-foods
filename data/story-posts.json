@@ -1,0 +1,52 @@
+[
+  {
+    "id": "founding-story",
+    "slug": "founding-story",
+    "title": "The Beginning of OVE Foods",
+    "coverImage": "facilities-1.jpeg",
+    "excerpt": "From a family olive oil business in Turkey established in 1948 to a global premium food brand.",
+    "content": "In 1948, our Grandfather founded the family's olive oil business by establishing storing and filling facilities in Turkey. Starting as a local operation, the company grew steadily and became the largest olive oil vendor in the local market. This marked the beginning of what would become a multi-generational commitment to quality olive oil production and distribution.",
+    "year": 1948,
+    "featured": true
+  },
+  {
+    "id": "local-market-leader",
+    "slug": "local-market-leader",
+    "title": "Becoming a Local Market Leader",
+    "coverImage": "facilities-2.jpeg",
+    "excerpt": "Growing from a small family operation to the largest olive oil vendor in the local market.",
+    "content": "Through dedication to quality and customer service, our grandfather's company expanded its operations and became the dominant olive oil vendor in the local Turkish market. The business established a reputation for reliable supply and consistent quality, laying the groundwork for future expansion into international markets.",
+    "year": 1960,
+    "featured": true
+  },
+  {
+    "id": "international-expansion",
+    "slug": "international-expansion",
+    "title": "Global Export Expansion",
+    "coverImage": "facilities-4.jpeg",
+    "excerpt": "The third generation transformed us into an international exporter reaching 40 countries.",
+    "content": "Under the leadership of the third generation, our group of companies underwent significant modernization and expansion. We built modern olive oil storage and filling facilities, and added additional units for the storage and filling of vinegars, sauces, and condiments. Today, we export to around forty countries worldwide, becoming one of the most important suppliers to main exporters in Turkey and one of the exporters with the largest supply potential.",
+    "year": 2000,
+    "featured": true
+  },
+  {
+    "id": "sustainability-commitment",
+    "slug": "sustainability-commitment",
+    "title": "Our Commitment to Sustainability",
+    "coverImage": "sustainability.jpg",
+    "excerpt": "How we transformed our operations to become a leader in sustainable food production.",
+    "content": "In 2015, we made a company-wide commitment to sustainable practices. This included transitioning to renewable energy sources, implementing water conservation systems, and achieving organic certification for the majority of our products. We also established partnerships with local farmers, ensuring fair trade practices and supporting traditional olive cultivation methods. Today, we're proud to be carbon neutral across all our operations.",
+    "year": 2015,
+    "featured": true
+  },
+  {
+    "id": "innovation-tradition",
+    "slug": "innovation-tradition",
+    "title": "Balancing Innovation with Tradition",
+    "coverImage": "innovation.jpg",
+    "excerpt": "How we use modern technology while preserving traditional Mediterranean craftsmanship.",
+    "content": "While we embrace modern technology for quality control and efficiency, we never compromise on traditional methods that have been perfected over centuries. Our cold-pressing techniques remain unchanged since our founding, and we still hand-select our olives during harvest. However, we've invested in state-of-the-art testing equipment to ensure consistency and safety, and we use solar power to run our facilities. This balance allows us to honor our heritage while meeting modern standards.",
+    "year": 2020,
+    "featured": false
+  }
+]

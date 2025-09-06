@@ -1,0 +1,538 @@
+[
+  {
+    "id": "extra-virgin-olive-oil-premium",
+    "slug": "extra-virgin-olive-oil-premium",
+    "title": "Premium Extra Virgin Olive Oil",
+    "categoryId": "olive-oils",
+    "shortCopy": "Cold-pressed from hand-selected Mediterranean olives, delivering exceptional flavor and quality in every drop.",
+    "longCopy": "Our flagship Premium Extra Virgin Olive Oil represents the pinnacle of Mediterranean craftsmanship. Hand-harvested from century-old olive groves in the hills of Tuscany, each bottle contains the pure essence of perfectly ripened olives. The cold-pressing process preserves the natural antioxidants and delicate flavors that make this oil exceptional for both cooking and finishing dishes.",
+    "images": [
+      "premium-olive-oil-bottle.jpg",
+      "WhatsApp Image 2025-09-04 at 13.49.33.jpeg"
+    ],
+    "specs": {
+      "volume": "500ml",
+      "variety": "Frantoio, Leccino",
+      "origin": "Urfa, Turkey",
+      "acidity": "< 0.3%"
+    },
+    "certifications": [
+      {
+        "label": "Organic",
+        "icon": "organic.svg"
+      },
+      {
+        "label": "PDO Certified",
+        "icon": "pdo.svg"
+      }
+    ],
+    "awards": [
+      {
+        "name": "Gold Medal - International Olive Oil Competition",
+        "year": 2023
+      },
+      {
+        "name": "Best in Class - Mediterranean Food Awards",
+        "year": 2023
+      }
+    ],
+    "relatedRecipeIds": [
+      "mediterranean-salad",
+      "herb-crusted-chicken",
+      "pasta-aglio-olio"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Whole Foods",
+        "url": "https://wholefoods.com"
+      },
+      {
+        "label": "Amazon",
+        "url": "https://amazon.com"
+      },
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      }
+    ],
+    "featured": true,
+    "seo": {
+      "title": "Premium Extra Virgin Olive Oil - Cold-Pressed Mediterranean",
+      "description": "Discover our award-winning Premium Extra Virgin Olive Oil, cold-pressed from hand-selected Tuscan olives for exceptional flavor and quality."
+    },
+    "nutrition": {}
+  },
+  {
+    "id": "classic-olive-oil",
+    "slug": "classic-olive-oil",
+    "title": "Classic Olive Oil",
+    "categoryId": "olive-oils",
+    "shortCopy": "Versatile and smooth olive oil perfect for everyday cooking, baking, and sautéing.",
+    "longCopy": "Our Classic Olive Oil offers the perfect balance of flavor and versatility for everyday cooking. Refined to achieve a smooth, mild taste that won't overpower your dishes, it's ideal for high-heat cooking, baking, and general culinary use. Made from a blend of Mediterranean olives, this oil delivers consistent quality and performance in your kitchen.",
+    "images": [
+      "classic-olive-oil-can.jpg",
+      "premium-olive-oil-can.jpg"
+    ],
+    "specs": {
+      "volume": "750ml",
+      "variety": "Mixed Mediterranean",
+      "origin": "Spain, Italy",
+      "acidity": "< 1.0%"
+    },
+    "certifications": [
+      {
+        "label": "Non-GMO",
+        "icon": "non-gmo.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "roasted-vegetables",
+      "lemon-herb-chicken"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Kroger",
+        "url": "https://kroger.com"
+      },
+      {
+        "label": "Safeway",
+        "url": "https://safeway.com"
+      },
+      {
+        "label": "Target",
+        "url": "https://target.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "herb-infused-olive-oil",
+    "slug": "herb-infused-olive-oil",
+    "title": "Mediterranean Herb Infused Olive Oil",
+    "categoryId": "specialty",
+    "shortCopy": "Extra virgin olive oil infused with rosemary, thyme, and oregano for instant Mediterranean flavor.",
+    "longCopy": "Transport your taste buds to the Mediterranean with our Herb Infused Olive Oil. We carefully infuse our premium extra virgin olive oil with a blend of rosemary, thyme, and oregano, creating a versatile finishing oil that adds instant depth to any dish. Perfect for drizzling over pizza, pasta, grilled vegetables, or crusty bread.",
+    "images": [
+      "herb-infused-bottle.jpg",
+      "herbs-and-oil.jpg",
+      "pizza-drizzle.jpg"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Arbequina",
+      "origin": "Spain",
+      "acidity": "< 0.5%"
+    },
+    "certifications": [
+      {
+        "label": "Organic",
+        "icon": "organic.svg"
+      }
+    ],
+    "awards": [
+      {
+        "name": "Specialty Food Award",
+        "year": 2023
+      }
+    ],
+    "relatedRecipeIds": [
+      "mediterranean-pizza",
+      "grilled-vegetables"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      },
+      {
+        "label": "Dean & DeLuca",
+        "url": "https://deandeluca.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "aged-balsamic-vinegar",
+    "slug": "aged-balsamic-vinegar",
+    "title": "18-Year Aged Balsamic Vinegar",
+    "categoryId": "vinegars",
+    "shortCopy": "Luxuriously thick and complex balsamic vinegar aged in traditional wooden barrels for 18 years.",
+    "longCopy": "Our 18-Year Aged Balsamic Vinegar is a testament to patience and tradition. Aged in a series of wooden barrels made from different woods including cherry, chestnut, and oak, this vinegar develops incredible complexity and a syrup-like consistency. Each drop delivers notes of fig, cherry, and caramel, making it perfect for finishing dishes, drizzling over fresh strawberries, or enjoying with aged Parmigiano-Reggiano.",
+    "images": [
+      "aged-balsamic-vinegar.png",
+      "WhatsApp Image 2025-09-04 at 13.49.45.jpeg"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Trebbiano Grapes",
+      "origin": "Modena, Italy",
+      "aging": "18 years"
+    },
+    "certifications": [
+      {
+        "label": "IGP Certified",
+        "icon": "igp.svg"
+      },
+      {
+        "label": "Traditional Method",
+        "icon": "traditional.svg"
+      }
+    ],
+    "awards": [
+      {
+        "name": "Great Taste Award - 3 Stars",
+        "year": 2023
+      },
+      {
+        "name": "World's Best Balsamic",
+        "year": 2022
+      }
+    ],
+    "relatedRecipeIds": [
+      "caprese-salad",
+      "balsamic-glazed-salmon"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Whole Foods",
+        "url": "https://wholefoods.com"
+      },
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "white-wine-vinegar",
+    "slug": "white-wine-vinegar",
+    "title": "Premium White Wine Vinegar",
+    "categoryId": "vinegars",
+    "shortCopy": "Crisp and clean white wine vinegar perfect for vinaigrettes, marinades, and pickling.",
+    "longCopy": "Crafted from premium white wines, our White Wine Vinegar offers bright acidity and clean flavor that enhances without overpowering. Aged in stainless steel to preserve its crisp character, this vinegar is essential for classic vinaigrettes, marinades, and pickling. Its balanced acidity makes it perfect for delicate preparations where you want the vinegar to complement rather than dominate.",
+    "images": [
+      "white-wine-vinegar-bottle.jpg",
+      "vinaigrette-making.jpg"
+    ],
+    "specs": {
+      "volume": "500ml",
+      "variety": "White Wine",
+      "origin": "France",
+      "acidity": "6%"
+    },
+    "certifications": [
+      {
+        "label": "Natural",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "classic-vinaigrette",
+      "pickled-vegetables"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Kroger",
+        "url": "https://kroger.com"
+      },
+      {
+        "label": "Safeway",
+        "url": "https://safeway.com"
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "olive-oil-spray",
+    "slug": "olive-oil-spray",
+    "title": "Pure Olive Oil Cooking Spray",
+    "categoryId": "cooking-sprays",
+    "shortCopy": "100% pure olive oil in a convenient spray format for healthy, non-stick cooking.",
+    "longCopy": "Our Pure Olive Oil Cooking Spray delivers all the benefits of olive oil in a convenient, mess-free format. Made with 100% pure olive oil and no artificial propellants, it provides even coverage for pans, grills, and baking dishes. Perfect for reducing calories while maintaining flavor, this spray is ideal for roasting vegetables, grilling proteins, or preparing baked goods.",
+    "images": [
+      "olive-oil-spray-bottle.jpg",
+      "spray-in-action.jpg",
+      "grilled-vegetables.jpg"
+    ],
+    "specs": {
+      "volume": "200ml",
+      "variety": "Pure Olive Oil",
+      "origin": "Mediterranean",
+      "propellant": "None (pump action)"
+    },
+    "certifications": [
+      {
+        "label": "Non-GMO",
+        "icon": "non-gmo.svg"
+      },
+      {
+        "label": "No Artificial Additives",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "roasted-vegetables",
+      "grilled-chicken"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Target",
+        "url": "https://target.com"
+      },
+      {
+        "label": "Walmart",
+        "url": "https://walmart.com"
+      },
+      {
+        "label": "Amazon",
+        "url": "https://amazon.com"
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "lemon-olive-oil",
+    "slug": "lemon-olive-oil",
+    "title": "Lemon Infused Olive Oil",
+    "categoryId": "specialty",
+    "shortCopy": "Bright and zesty olive oil infused with fresh lemon for a burst of Mediterranean sunshine.",
+    "longCopy": "Our Lemon Infused Olive Oil captures the essence of Mediterranean sunshine in every bottle. We carefully infuse our extra virgin olive oil with fresh lemon zest and natural lemon oils, creating a bright, aromatic oil that's perfect for finishing fish, drizzling over salads, or adding a citrus note to roasted vegetables. The natural lemon flavor is balanced and fresh, never artificial.",
+    "images": [
+      "lemon-olive-oil-bottle.jpg",
+      "lemons-and-oil.jpg",
+      "fish-drizzle.jpg"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Picual",
+      "origin": "Spain",
+      "acidity": "< 0.4%"
+    },
+    "certifications": [
+      {
+        "label": "Natural Flavoring",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "lemon-herb-salmon",
+      "citrus-salad"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      },
+      {
+        "label": "Sur La Table",
+        "url": "https://surlatable.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "truffle-olive-oil",
+    "slug": "truffle-olive-oil",
+    "title": "Black Truffle Olive Oil",
+    "categoryId": "specialty",
+    "shortCopy": "Luxurious olive oil infused with authentic black truffle for an indulgent culinary experience.",
+    "longCopy": "Experience the ultimate in culinary luxury with our Black Truffle Olive Oil. We blend our finest extra virgin olive oil with authentic black truffle extract and pieces, creating an intensely aromatic oil that transforms ordinary dishes into extraordinary experiences. Perfect for finishing pasta, risotto, pizza, or scrambled eggs, just a few drops add sophisticated earthiness to any meal.",
+    "images": [
+      "truffle-oil-bottle.jpg",
+      "black-truffles.jpg",
+      "pasta-truffle.jpg"
+    ],
+    "specs": {
+      "volume": "100ml",
+      "variety": "Frantoio",
+      "origin": "Italy",
+      "acidity": "< 0.3%"
+    },
+    "certifications": [
+      {
+        "label": "Real Truffle",
+        "icon": "premium.svg"
+      }
+    ],
+    "awards": [
+      {
+        "name": "Gourmet Food Award",
+        "year": 2023
+      }
+    ],
+    "relatedRecipeIds": [
+      "truffle-pasta",
+      "mushroom-risotto"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      },
+      {
+        "label": "Dean & DeLuca",
+        "url": "https://deandeluca.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "red-wine-vinegar",
+    "slug": "red-wine-vinegar",
+    "title": "Aged Red Wine Vinegar",
+    "categoryId": "vinegars",
+    "shortCopy": "Rich and robust red wine vinegar aged in oak barrels for complex flavor and depth.",
+    "longCopy": "Our Aged Red Wine Vinegar is crafted from premium red wines and aged in oak barrels to develop rich, complex flavors. The aging process mellows the acidity while adding subtle woody notes and depth. This versatile vinegar is perfect for hearty vinaigrettes, marinades for red meat, and deglazing pans to create flavorful sauces.",
+    "images": [
+      "red-wine-vinegar-bottle.jpg",
+      "oak-barrels.jpg",
+      "meat-marinade.jpg"
+    ],
+    "specs": {
+      "volume": "500ml",
+      "variety": "Red Wine",
+      "origin": "France",
+      "acidity": "6%"
+    },
+    "certifications": [
+      {
+        "label": "Oak Aged",
+        "icon": "premium.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "red-wine-vinaigrette",
+      "beef-marinade"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Whole Foods",
+        "url": "https://wholefoods.com"
+      },
+      {
+        "label": "Kroger",
+        "url": "https://kroger.com"
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "garlic-olive-oil",
+    "slug": "garlic-olive-oil",
+    "title": "Roasted Garlic Olive Oil",
+    "categoryId": "specialty",
+    "shortCopy": "Extra virgin olive oil infused with slow-roasted garlic for rich, savory flavor.",
+    "longCopy": "Our Roasted Garlic Olive Oil combines the finest extra virgin olive oil with slow-roasted garlic for a rich, savory infusion. The garlic is roasted until golden and sweet, then carefully infused into the oil to create a complex flavor profile that's both robust and mellow. Perfect for bread dipping, pasta dishes, roasted vegetables, or anywhere you want to add deep garlic flavor without the bite of raw garlic.",
+    "images": [
+      "garlic-oil-bottle.jpg",
+      "roasted-garlic.jpg",
+      "bread-dipping.jpg"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Arbequina",
+      "origin": "Spain",
+      "acidity": "< 0.5%"
+    },
+    "certifications": [
+      {
+        "label": "Natural Flavoring",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "garlic-bread",
+      "pasta-aglio-olio"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Williams Sonoma",
+        "url": "https://williams-sonoma.com"
+      },
+      {
+        "label": "Target",
+        "url": "https://target.com"
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "fig-balsamic-vinegar",
+    "slug": "fig-balsamic-vinegar",
+    "title": "Fig Balsamic Vinegar",
+    "categoryId": "vinegars",
+    "shortCopy": "Sweet and tangy balsamic vinegar infused with natural fig essence for a unique flavor profile.",
+    "longCopy": "Our Fig Balsamic Vinegar combines the rich complexity of aged balsamic with the sweet, honeyed notes of Mediterranean figs. This artisanal vinegar is perfect for cheese boards, fruit salads, and gourmet cooking applications. The natural fig infusion adds depth and sweetness that pairs beautifully with both savory and sweet dishes.",
+    "images": [
+      "fig-balsamic-vinegar.png"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Fig Infused",
+      "origin": "Turkey",
+      "acidity": "6%"
+    },
+    "certifications": [
+      {
+        "label": "Natural",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "caprese-salad"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Specialty Stores",
+        "url": "https://example.com"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "pomegranate-vinegar",
+    "slug": "pomegranate-vinegar",
+    "title": "Pomegranate Vinegar",
+    "categoryId": "vinegars",
+    "shortCopy": "Antioxidant-rich pomegranate vinegar with a beautiful ruby color and tart-sweet flavor.",
+    "longCopy": "Our Pomegranate Vinegar is crafted from premium pomegranates, creating a vibrant ruby-colored vinegar with exceptional health benefits. Rich in antioxidants and natural pomegranate compounds, this vinegar offers a perfect balance of tartness and subtle sweetness. Ideal for salad dressings, marinades, and as a finishing touch for Middle Eastern and Mediterranean dishes.",
+    "images": [
+      "pomegranate-vinegar.png"
+    ],
+    "specs": {
+      "volume": "250ml",
+      "variety": "Pomegranate",
+      "origin": "Turkey",
+      "acidity": "5%"
+    },
+    "certifications": [
+      {
+        "label": "Antioxidant Rich",
+        "icon": "health.svg"
+      },
+      {
+        "label": "Natural",
+        "icon": "natural.svg"
+      }
+    ],
+    "awards": [],
+    "relatedRecipeIds": [
+      "mediterranean-salad"
+    ],
+    "retailerLinks": [
+      {
+        "label": "Health Stores",
+        "url": "https://example.com"
+      }
+    ],
+    "featured": true
+  }
+]

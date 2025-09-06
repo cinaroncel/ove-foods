@@ -1,0 +1,34 @@
+[
+  {
+    "id": "olive-oils",
+    "slug": "olive-oils",
+    "name": "Olive Oils",
+    "description": "Premium extra virgin and classic olive oils crafted from the finest Mediterranean olives",
+    "heroImage": "olive-oils-hero.jpg",
+    "order": 10
+  },
+  {
+    "id": "vinegars",
+    "slug": "vinegars",
+    "name": "Vinegars",
+    "description": "Aged balsamic and wine vinegars that add depth and complexity to your dishes",
+    "heroImage": "vinegars-hero.jpg",
+    "order": 20
+  },
+  {
+    "id": "cooking-sprays",
+    "slug": "cooking-sprays",
+    "name": "Cooking Sprays",
+    "description": "Convenient cooking sprays for healthy, non-stick cooking with pure olive oil",
+    "heroImage": "sprays-hero.jpg",
+    "order": 30
+  },
+  {
+    "id": "specialty",
+    "slug": "specialty",
+    "name": "Specialty Products",
+    "description": "Unique blends and infused oils for the adventurous home chef",
+    "heroImage": "specialty-hero.jpg",
+    "order": 40
+  }
+]
