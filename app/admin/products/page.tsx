@@ -12,7 +12,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { productsService } from '@/lib/firebase/firestore'
 import { getCategories } from '@/lib/cms/data-provider'
 import type { Product, Category } from '@/lib/cms/types'
-import { Plus, Edit, Trash2, Search, Star } from 'lucide-react'
+import { Plus, Edit, Trash2, Search, Star, Package } from 'lucide-react'
 
 export default function ProductsPage() {
   const router = useRouter()

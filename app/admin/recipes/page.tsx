@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { recipesService } from '@/lib/firebase/firestore'
 import type { Recipe } from '@/lib/cms/types'
-import { Plus, Edit, Trash2, Search, Star, Clock, Users } from 'lucide-react'
+import { Plus, Edit, Trash2, Search, Star, Clock, Users, ChefHat } from 'lucide-react'
 
 export default function RecipesPage() {
   const router = useRouter()
