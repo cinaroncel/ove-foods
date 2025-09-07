@@ -1,46 +1,55 @@
-import { initializeApp, getApps, cert } from 'firebase-admin/app'
-import { getAuth } from 'firebase-admin/auth'
+import { initializeApp } from 'firebase/app'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import * as dotenv from 'dotenv'
 
 dotenv.config({ path: '.env.local' })
 
-// Initialize Firebase Admin SDK
-if (!getApps().length) {
-  // For development, we can use emulators or service account
-  // Since this is for development, let's use the project ID directly
-  initializeApp({
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
-  })
+// Firebase config
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCuM8UIRP1vxvu5F2aEoG9GaPtWJ80xKi4",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "ove-foods.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "ove-foods",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "ove-foods.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "402049052326",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:402049052326:web:81934fb0b78e522e7b0e67",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-PWYG73C90T"
 }
 
-const auth = getAuth()
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+
+const auth = getAuth(app)
 
 async function createAdminUser() {
   try {
     const adminEmail = 'admin@ovefoods.com'
-    const adminPassword = 'admin123' // You should change this to something secure
+    const adminPassword = 'OveAdmin2024!' // Secure password
 
     console.log('Creating admin user...')
     
-    const userRecord = await auth.createUser({
-      email: adminEmail,
-      password: adminPassword,
-      emailVerified: true,
-      displayName: 'OVE Foods Admin',
-    })
+    const userCredential = await createUserWithEmailAndPassword(auth, adminEmail, adminPassword)
+    const user = userCredential.user
 
-    console.log('Successfully created admin user:', userRecord.uid)
+    console.log('Successfully created admin user:', user.uid)
     console.log('Email:', adminEmail)
     console.log('Password:', adminPassword)
-    console.log('\nYou can now log in to the admin panel with these credentials.')
+    console.log('\n✅ Admin user created successfully!')
+    console.log('\n🔗 Access the admin panel at:')
+    console.log('   • Local: http://localhost:3000/admin/login')
+    console.log('   • Live:  https://ove-foods.vercel.app/admin/login')
 
   } catch (error: any) {
     if (error.code === 'auth/email-already-exists') {
-      console.log('Admin user already exists!')
+      console.log('✅ Admin user already exists!')
       console.log('Email: admin@ovefoods.com')
-      console.log('Password: admin123')
+      console.log('Password: OveAdmin2024!')
+      console.log('\n🔗 Access the admin panel at:')
+      console.log('   • Local: http://localhost:3000/admin/login')
+      console.log('   • Live:  https://ove-foods.vercel.app/admin/login')
     } else {
-      console.error('Error creating admin user:', error)
+      console.error('❌ Error creating admin user:', error)
+      console.log('\nTip: You can also create the user manually in Firebase Console:')
+      console.log('https://console.firebase.google.com/project/ove-foods/authentication/users')
     }
   }
 }
