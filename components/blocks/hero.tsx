@@ -44,7 +44,6 @@ export function Hero({
       {video ? (
         <video
           src={video.src}
-          poster={video.poster}
           autoPlay
           muted
           loop
