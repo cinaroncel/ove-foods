@@ -54,8 +54,7 @@ export default async function HomePage() {
           href: "/recipes"
         }}
         video={{
-          src: "/assets/hakan-abinin-adami.webm",
-          poster: "/assets/hero-home.jpg"
+          src: "/assets/hakan-abinin-adami.webm"
         }}
       />
 
