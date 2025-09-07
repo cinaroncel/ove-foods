@@ -65,8 +65,18 @@ export class FirestoreService<T> {
   }
 
   async update(id: string, data: Partial<T>): Promise<void> {
-    const docRef = doc(db, this.collectionName, id);
-    await updateDoc(docRef, data as any);
+    try {
+      console.log(`Updating document in ${this.collectionName} with ID:`, id)
+      console.log('Update data:', data)
+      
+      const docRef = doc(db, this.collectionName, id);
+      await updateDoc(docRef, data as any);
+      
+      console.log('Document updated successfully')
+    } catch (error) {
+      console.error(`Error updating document in ${this.collectionName}:`, error)
+      throw error
+    }
   }
 
   async delete(id: string): Promise<void> {

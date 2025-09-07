@@ -171,16 +171,25 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
         relatedRecipeIds: product?.relatedRecipeIds || []
       }
 
-      if (isEditing) {
+      console.log('Submitting product data:', productData)
+      console.log('Is editing:', isEditing)
+      console.log('Product ID:', product?.id)
+
+      if (isEditing && product?.id) {
+        console.log('Updating product...')
         await productsService.update(product.id, productData)
+        console.log('Product updated successfully')
       } else {
-        await productsService.create(productData)
+        console.log('Creating new product...')
+        const newId = await productsService.create(productData)
+        console.log('Product created with ID:', newId)
       }
 
       onSubmit?.()
       router.push('/admin/products')
     } catch (error: any) {
       console.error('Save error:', error)
+      console.error('Error details:', error.code, error.message)
       setError(error.message || 'Failed to save product')
     } finally {
       setLoading(false)
