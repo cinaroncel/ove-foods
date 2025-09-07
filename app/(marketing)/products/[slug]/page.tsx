@@ -23,7 +23,7 @@ interface ProductPageProps {
   params: { slug: string }
 }
 
-export const revalidate = 3600 // 1 hour
+export const dynamic = 'force-dynamic' // Always fetch fresh data
 
 export async function generateStaticParams() {
   const products = await getProducts()
