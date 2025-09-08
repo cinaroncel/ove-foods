@@ -14,6 +14,7 @@ import { uploadProductImage } from '@/lib/firebase/storage'
 import { productsService } from '@/lib/firebase/firestore'
 import { getCategories } from '@/lib/cms/data-provider'
 import type { Product, Category } from '@/lib/cms/types'
+import { getProductImageUrl } from '@/lib/utils/image-utils'
 import { Trash2, Upload, Plus } from 'lucide-react'
 
 interface ProductFormProps {
@@ -86,11 +87,12 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
       try {
         setUploadProgress(prev => ({ ...prev, [uploadId]: 0 }))
         
-        const imageUrl = await uploadProductImage(file)
+        // Upload to Firebase Storage products folder
+        const downloadURL = await uploadProductImage(file)
+        console.log('Image uploaded to Firebase Storage:', downloadURL)
         
-        // Extract filename from URL for local storage
-        const filename = file.name
-        setImages(prev => [...prev, filename])
+        // Store the full Firebase URL in database
+        setImages(prev => [...prev, downloadURL])
         
         setUploadProgress(prev => {
           const newProgress = { ...prev }
@@ -99,7 +101,7 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
         })
       } catch (error) {
         console.error('Upload error:', error)
-        setError('Failed to upload image')
+        setError('Failed to upload image: ' + error.message)
         setUploadProgress(prev => {
           const newProgress = { ...prev }
           delete newProgress[uploadId]
@@ -320,7 +322,7 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
               {images.map((image, index) => (
                 <div key={index} className="relative group">
                   <img
-                    src={`/assets/products/${image}`}
+                    src={getProductImageUrl(image)}
                     alt={`Product image ${index + 1}`}
                     className="w-full h-32 object-cover rounded border"
                   />

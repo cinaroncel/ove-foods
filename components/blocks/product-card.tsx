@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import type { Product } from '@/lib/cms/types'
 import { cardHover } from '@/lib/motion/constants'
+import { getProductImageUrl } from '@/lib/utils/image-utils'
 
 interface ProductCardProps {
   product: Product
@@ -36,7 +37,7 @@ export function ProductCard({
           <Link href={`/products/${product.slug}`} className="block w-full h-full flex items-center justify-center p-6">
             <div className="relative w-full h-full">
               <Image
-                src={`/assets/products/${product.images[0]}`}
+                src={getProductImageUrl(product.images[0])}
                 alt={product.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
