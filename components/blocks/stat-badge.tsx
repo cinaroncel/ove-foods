@@ -43,11 +43,13 @@ function useCountUp(target: number, duration: number = 1500) {
   
   React.useEffect(() => {
     const unsubscribe = spring.on('change', (latest) => {
-      setCount(Math.round(latest))
+      // Clamp the value to not exceed the target
+      const clampedValue = Math.min(Math.max(Math.round(latest), 0), target)
+      setCount(clampedValue)
     })
     
     return unsubscribe
-  }, [spring])
+  }, [spring, target])
   
   const startAnimation = React.useCallback(() => {
     motionValue.set(target)

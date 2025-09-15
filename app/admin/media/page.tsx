@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { uploadProductImage, uploadRecipeImage } from '@/lib/firebase/storage'
+import { FirebaseImageManager } from '@/components/admin/firebase-image-manager'
 import { Upload, Image as ImageIcon, Trash2, ExternalLink } from 'lucide-react'
 
 interface UploadedImage {
@@ -111,9 +112,8 @@ export default function MediaPage() {
   }
 
   const copyImagePath = (image: UploadedImage) => {
-    const path = `/assets/${image.type}/${image.name}`
-    navigator.clipboard.writeText(path)
-    setSuccess(`Image path copied: ${path}`)
+    navigator.clipboard.writeText(image.url)
+    setSuccess(`Image URL copied: ${image.url}`)
   }
 
   const productImages = images.filter(img => img.type === 'products')
@@ -147,12 +147,17 @@ export default function MediaPage() {
               </Alert>
             )}
 
-            <Tabs defaultValue="upload" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-3">
+            <Tabs defaultValue="manage" className="space-y-6">
+              <TabsList className="grid w-full grid-cols-4">
+                <TabsTrigger value="manage">Manage Images</TabsTrigger>
                 <TabsTrigger value="upload">Upload Images</TabsTrigger>
                 <TabsTrigger value="products">Product Images</TabsTrigger>
                 <TabsTrigger value="recipes">Recipe Images</TabsTrigger>
               </TabsList>
+
+              <TabsContent value="manage" className="space-y-6">
+                <FirebaseImageManager />
+              </TabsContent>
 
               <TabsContent value="upload" className="space-y-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -270,7 +275,7 @@ export default function MediaPage() {
                           <div key={`${image.name}-${index}`} className="group relative">
                             <div className="aspect-square rounded-lg border overflow-hidden bg-muted">
                               <img
-                                src={`/assets/products/${image.name}`}
+                                src={image.url}
                                 alt={image.name}
                                 className="w-full h-full object-cover"
                               />
@@ -327,7 +332,7 @@ export default function MediaPage() {
                           <div key={`${image.name}-${index}`} className="group relative">
                             <div className="aspect-video rounded-lg border overflow-hidden bg-muted">
                               <img
-                                src={`/assets/recipes/${image.name}`}
+                                src={image.url}
                                 alt={image.name}
                                 className="w-full h-full object-cover"
                               />
