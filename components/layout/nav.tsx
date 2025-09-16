@@ -69,28 +69,28 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-4" role="navigation" aria-label="Main navigation">
+      <nav className="container mx-auto flex h-20 items-center justify-between px-4" role="navigation" aria-label="Main navigation">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 focus-visible-ring">
           <Image
-            src="/assets/logo.png"
+            src="/ovelogonet.png"
             alt="OVE Foods"
             width={150}
             height={50}
             priority
-            className="h-10 w-auto"
+            className="h-[64px] w-auto md:h-[64px]"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-8">
+        <div className="hidden md:flex md:items-center md:space-x-20">
           {navigationItems.map((item) => (
             <div key={item.label} className="relative">
               {item.children ? (
                 <div className="group">
                   <button
                     className={cn(
-                      "flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary focus-visible-ring",
+                      "flex items-center space-x-1 text-lg font-medium transition-colors hover:text-primary focus-visible-ring",
                       isActivePath(item.href) ? "text-primary" : "text-foreground"
                     )}
                     aria-expanded={activeDropdown === item.label}
@@ -118,7 +118,7 @@ export function Nav() {
                           <Link
                             key={child.href}
                             href={child.href as any}
-                            className="block rounded-sm px-3 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
+                            className="block rounded-sm px-3 py-2 text-lg text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
                           >
                             {child.label}
                           </Link>
@@ -131,7 +131,7 @@ export function Nav() {
                 <Link
                   href={item.href as any}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary focus-visible-ring",
+                    "text-lg font-medium transition-colors hover:text-primary focus-visible-ring",
                     isActivePath(item.href) ? "text-primary" : "text-foreground"
                   )}
                 >
@@ -144,7 +144,7 @@ export function Nav() {
 
         {/* CTA Button */}
         <div className="hidden md:flex">
-          <Button asChild>
+          <Button asChild size="lg" className="text-base px-6 py-3">
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
@@ -181,7 +181,7 @@ export function Nav() {
                     <>
                       <button
                         className={cn(
-                          "flex w-full items-center justify-between text-left text-sm font-medium focus-visible-ring",
+                          "flex w-full items-center justify-between text-left text-lg font-medium focus-visible-ring",
                           isActivePath(item.href) ? "text-primary" : "text-foreground"
                         )}
                         onClick={() => toggleDropdown(item.label)}
@@ -207,7 +207,7 @@ export function Nav() {
                               <Link
                                 key={child.href}
                                 href={child.href as any}
-                                className="block text-sm text-muted-foreground hover:text-foreground focus-visible-ring"
+                                className="block text-lg text-muted-foreground hover:text-foreground focus-visible-ring"
                               >
                                 {child.label}
                               </Link>
@@ -220,7 +220,7 @@ export function Nav() {
                     <Link
                       href={item.href as any}
                       className={cn(
-                        "block text-sm font-medium focus-visible-ring",
+                        "block text-lg font-medium focus-visible-ring",
                         isActivePath(item.href) ? "text-primary" : "text-foreground"
                       )}
                     >
@@ -230,7 +230,7 @@ export function Nav() {
                 </div>
               ))}
               <div className="pt-4">
-                <Button asChild className="w-full">
+                <Button asChild className="w-full" size="lg">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>

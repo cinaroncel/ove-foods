@@ -1,71 +1,44 @@
-'use client'
-
-import * as React from 'react'
 import { ProductGrid } from '@/components/blocks/product-grid'
 import { Filters } from '@/components/blocks/filters'
 import { getProducts, getCategories } from '@/lib/cms/data-provider'
 import { ProductSearch, filterProducts } from '@/lib/search'
-import { useSearchParams } from 'next/navigation'
 import type { Product, Category, SearchFilters } from '@/lib/cms/types'
 
-export default function ProductsPage() {
-  const searchParams = useSearchParams()
-  const [products, setProducts] = React.useState<Product[]>([])
-  const [categories, setCategories] = React.useState<Category[]>([])
-  const [filteredProducts, setFilteredProducts] = React.useState<Product[]>([])
-  const [loading, setLoading] = React.useState(true)
-  const [productSearch, setProductSearch] = React.useState<ProductSearch | null>(null)
+export const dynamic = 'force-dynamic' // Always fetch fresh data
 
-  // Load initial data
-  React.useEffect(() => {
-    async function loadData() {
-      try {
-        const [productsData, categoriesData] = await Promise.all([
-          getProducts(),
-          getCategories()
-        ])
-        
-        setProducts(productsData)
-        setCategories(categoriesData)
-        setFilteredProducts(productsData)
-        setProductSearch(new ProductSearch(productsData))
-      } catch (error) {
-        console.error('Error loading products:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
+interface ProductsPageProps {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
-    loadData()
-  }, [])
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  // Load data server-side
+  const [products, categories] = await Promise.all([
+    getProducts(),
+    getCategories()
+  ])
 
-  // Apply filters when search params change
-  React.useEffect(() => {
-    if (!products.length || !productSearch) return
+  // Apply filters based on search params
+  const query = typeof searchParams.q === 'string' ? searchParams.q : ''
+  const category = typeof searchParams.category === 'string' ? searchParams.category : ''
+  const featured = searchParams.featured === 'true'
 
-    const query = searchParams.get('q') || ''
-    const category = searchParams.get('category') || ''
-    const featured = searchParams.get('featured') === 'true'
+  const filters: SearchFilters = {
+    query,
+    category,
+    featured
+  }
 
-    const filters: SearchFilters = {
-      query,
-      category,
-      featured
-    }
+  let filteredProducts = products
 
-    let results = products
-
-    // Apply search if query exists
-    if (query) {
-      const searchResults = productSearch.search(query, filters)
-      results = searchResults.map(result => result.item)
-    } else {
-      // Apply filters without search
-      results = filterProducts(products, filters)
-    }
-
-    setFilteredProducts(results)
-  }, [searchParams, products, productSearch])
+  // Apply search if query exists
+  if (query) {
+    const productSearch = new ProductSearch(products)
+    const searchResults = productSearch.search(query, filters)
+    filteredProducts = searchResults.map(result => result.item)
+  } else {
+    // Apply filters without search
+    filteredProducts = filterProducts(products, filters)
+  }
 
   // Create filter options
   const categoryOptions = categories.map(cat => ({
@@ -109,17 +82,13 @@ export default function ProductsPage() {
             <div className="lg:col-span-3">
               <div className="mb-6 flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">
-                  {loading 
-                    ? 'Loading products...' 
-                    : `${filteredProducts.length} product${filteredProducts.length === 1 ? '' : 's'} found`
-                  }
+                  {`${filteredProducts.length} product${filteredProducts.length === 1 ? '' : 's'} found`}
                 </p>
               </div>
 
               <ProductGrid
                 products={filteredProducts}
                 categories={categories}
-                loading={loading}
                 showRetailerLinks={true}
               />
             </div>

@@ -21,6 +21,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ove-foods.firebasestorage.app',
       },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
     ],
   },
 }
