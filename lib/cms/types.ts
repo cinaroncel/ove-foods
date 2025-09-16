@@ -5,6 +5,8 @@ export interface Category {
   description?: string
   heroImage?: string
   order: number
+  parentCategoryId?: string  // For subcategories
+  subcategories?: Category[]  // Populated when fetching with subcategories
 }
 
 export interface Product {

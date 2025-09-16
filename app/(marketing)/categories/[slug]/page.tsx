@@ -2,10 +2,11 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getCategories, getProducts } from '@/lib/cms/data-provider'
+import { getCategoriesWithSubs, getProductsByCategoryIncludingSubs, getProductsByCategory } from '@/lib/cms/data-provider'
 import { ProductGrid } from '@/components/blocks/product-grid'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Package } from 'lucide-react'
+import { getCategoryImageUrl } from '@/lib/utils/image-utils'
 
 interface CategoryPageProps {
   params: {
@@ -14,8 +15,18 @@ interface CategoryPageProps {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const categories = await getCategories()
-  const category = categories.find(c => c.slug === params.slug)
+  const categoriesWithSubs = await getCategoriesWithSubs()
+  
+  // Flatten categories to include subcategories
+  const allCategories: any[] = []
+  categoriesWithSubs.forEach(category => {
+    allCategories.push(category)
+    if (category.subcategories) {
+      allCategories.push(...category.subcategories)
+    }
+  })
+  
+  const category = allCategories.find(c => c.slug === params.slug)
 
   if (!category) {
     return {
@@ -35,26 +46,52 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export async function generateStaticParams() {
-  const categories = await getCategories()
-  return categories.map((category) => ({
+  const categoriesWithSubs = await getCategoriesWithSubs()
+  
+  // Include both parent categories and subcategories
+  const allCategories: any[] = []
+  categoriesWithSubs.forEach(category => {
+    allCategories.push(category)
+    if (category.subcategories) {
+      allCategories.push(...category.subcategories)
+    }
+  })
+  
+  return allCategories.map((category) => ({
     slug: category.slug,
   }))
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const [categories, products] = await Promise.all([
-    getCategories(),
-    getProducts()
-  ])
-
-  const category = categories.find(c => c.slug === params.slug)
+  const categoriesWithSubs = await getCategoriesWithSubs()
+  
+  // Flatten categories to include subcategories
+  const allCategories: any[] = []
+  categoriesWithSubs.forEach(category => {
+    allCategories.push(category)
+    if (category.subcategories) {
+      allCategories.push(...category.subcategories)
+    }
+  })
+  
+  const category = allCategories.find(c => c.slug === params.slug)
 
   if (!category) {
     notFound()
   }
 
-  // Filter products for this category
-  const categoryProducts = products.filter(p => p.categoryId === category.id)
+  // Get products based on category type
+  let categoryProducts: any[]
+  if (category.parentCategoryId) {
+    // This is a subcategory - show only products from this subcategory
+    categoryProducts = await getProductsByCategory(category.id)
+  } else {
+    // This is a parent category - show products from this category AND all its subcategories
+    categoryProducts = await getProductsByCategoryIncludingSubs(category.id)
+  }
+  
+  // Also get subcategories if this is a parent category (for navigation)
+  const subcategories = category.parentCategoryId ? [] : categoriesWithSubs.find(c => c.id === category.id)?.subcategories || []
 
   return (
     <div className="min-h-screen bg-white">
@@ -72,7 +109,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <section className="relative h-[50vh] min-h-[400px]">
         {category.heroImage ? (
           <Image
-            src={`/assets/categories/${category.heroImage}`}
+            src={getCategoryImageUrl(category.heroImage)}
             alt={category.name}
             fill
             className="object-cover"
@@ -100,6 +137,35 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
+      {/* Subcategories Navigation - Only show for parent categories with subcategories */}
+      {subcategories.length > 0 && (
+        <section className="py-8 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Shop by Type</h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {subcategories.map((subcategory: any) => (
+                <Link
+                  key={subcategory.id}
+                  href={`/categories/${subcategory.slug}`}
+                  className="group p-6 bg-white rounded-lg border border-gray-200 hover:border-primary hover:shadow-md transition-all duration-200"
+                >
+                  <div className="text-center">
+                    <h4 className="font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                      {subcategory.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 mt-2">
+                      {subcategory.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Products Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -119,7 +185,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           {categoryProducts.length > 0 ? (
             <ProductGrid 
               products={categoryProducts} 
-              categories={categories}
+              categories={allCategories}
               loading={false}
             />
           ) : (
@@ -142,15 +208,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </section>
 
       {/* Related Categories */}
-      {categories.length > 1 && (
+      {allCategories.filter(c => !c.parentCategoryId).length > 1 && (
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
               Other Categories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categories
-                .filter(c => c.id !== category.id)
+              {allCategories
+                .filter(c => c.id !== category.id && !c.parentCategoryId)
                 .slice(0, 3)
                 .map((otherCategory) => (
                   <Link
@@ -161,7 +227,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     <div className="relative h-48 rounded-lg overflow-hidden mb-4">
                       {otherCategory.heroImage ? (
                         <Image
-                          src={`/assets/categories/${otherCategory.heroImage}`}
+                          src={getCategoryImageUrl(otherCategory.heroImage)}
                           alt={otherCategory.name}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"

@@ -120,6 +120,25 @@ export const getProductsByCategory = async (categoryId: string): Promise<Product
   return productsService.getWhere('categoryId', '==', categoryId);
 };
 
+// Get products for a category including its subcategories (for parent categories like olive-oils)
+export const getProductsByCategoryWithSubs = async (categoryId: string): Promise<Product[]> => {
+  // Get products directly in this category
+  const directProducts = await getProductsByCategory(categoryId);
+  
+  // Get subcategories
+  const subcategories = await getSubcategories(categoryId);
+  
+  // Get products from all subcategories
+  const subcategoryProducts = await Promise.all(
+    subcategories.map(sub => getProductsByCategory(sub.id))
+  );
+  
+  // Flatten and combine all products
+  const allSubcategoryProducts = subcategoryProducts.flat();
+  
+  return [...directProducts, ...allSubcategoryProducts];
+};
+
 export const getFeaturedProducts = async (): Promise<Product[]> => {
   return productsService.getWhere('featured', '==', true);
 };
@@ -134,4 +153,26 @@ export const getRecipesByProductId = async (productId: string): Promise<Recipe[]
 
 export const getCategoriesOrdered = async (): Promise<Category[]> => {
   return categoriesService.getOrdered('order', 'asc');
+};
+
+// Get categories with their subcategories
+export const getCategoriesWithSubcategories = async (): Promise<Category[]> => {
+  const allCategories = await getCategoriesOrdered();
+  
+  // Separate parent categories and subcategories
+  const parentCategories = allCategories.filter(cat => !cat.parentCategoryId);
+  const subcategories = allCategories.filter(cat => cat.parentCategoryId);
+  
+  // Attach subcategories to their parent categories
+  return parentCategories.map(parent => ({
+    ...parent,
+    subcategories: subcategories
+      .filter(sub => sub.parentCategoryId === parent.id)
+      .sort((a, b) => a.order - b.order)
+  }));
+};
+
+// Get subcategories for a specific parent category
+export const getSubcategories = async (parentCategoryId: string): Promise<Category[]> => {
+  return categoriesService.getWhere('parentCategoryId', '==', parentCategoryId);
 };

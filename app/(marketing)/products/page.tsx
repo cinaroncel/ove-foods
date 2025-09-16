@@ -1,6 +1,6 @@
 import { ProductGrid } from '@/components/blocks/product-grid'
 import { Filters } from '@/components/blocks/filters'
-import { getProducts, getCategories } from '@/lib/cms/data-provider'
+import { getProducts, getCategoriesWithSubs } from '@/lib/cms/data-provider'
 import { ProductSearch, filterProducts } from '@/lib/search'
 import type { Product, Category, SearchFilters } from '@/lib/cms/types'
 
@@ -12,10 +12,19 @@ interface ProductsPageProps {
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
   // Load data server-side
-  const [products, categories] = await Promise.all([
+  const [products, categoriesWithSubs] = await Promise.all([
     getProducts(),
-    getCategories()
+    getCategoriesWithSubs()
   ])
+
+  // Flatten categories to include subcategories
+  const allCategories: Category[] = []
+  categoriesWithSubs.forEach(category => {
+    allCategories.push(category)
+    if (category.subcategories) {
+      allCategories.push(...category.subcategories)
+    }
+  })
 
   // Apply filters based on search params
   const query = typeof searchParams.q === 'string' ? searchParams.q : ''
@@ -40,8 +49,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     filteredProducts = filterProducts(products, filters)
   }
 
-  // Create filter options
-  const categoryOptions = categories.map(cat => ({
+  // Create filter options (including subcategories)
+  const categoryOptions = allCategories.map(cat => ({
     label: cat.name,
     value: cat.id,
     count: products.filter(p => p.categoryId === cat.id).length
@@ -88,7 +97,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
               <ProductGrid
                 products={filteredProducts}
-                categories={categories}
+                categories={allCategories}
                 showRetailerLinks={true}
               />
             </div>

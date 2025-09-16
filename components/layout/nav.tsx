@@ -14,7 +14,16 @@ const navigationItems = [
     label: 'Products',
     href: '/products',
     children: [
-      { label: 'Olive Oils', href: '/categories/olive-oils' },
+      { 
+        label: 'Olive Oils', 
+        href: '/categories/olive-oils',
+        children: [
+          { label: 'Organic Extra Virgin Olive Oil', href: '/categories/organic-extra-virgin-olive-oil' },
+          { label: 'Extra Virgin Olive Oil', href: '/categories/extra-virgin-olive-oil' },
+          { label: 'Pure Olive Oil', href: '/categories/pure-olive-oil' },
+          { label: 'Infused Olive Oils', href: '/categories/infused-olive-oils' },
+        ]
+      },
       { label: 'Vinegars', href: '/categories/vinegars' },
       { label: 'Cooking Sprays', href: '/categories/cooking-sprays' },
       { label: 'Specialty Products', href: '/categories/specialty' },
@@ -115,13 +124,41 @@ export function Nav() {
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
                         {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href as any}
-                            className="block rounded-sm px-3 py-2 text-lg text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
-                          >
-                            {child.label}
-                          </Link>
+                          <div key={child.href}>
+                            {child.children ? (
+                              // Category with subcategories (like Olive Oils)
+                              <div className="relative group">
+                                <Link
+                                  href={child.href as any}
+                                  className="flex items-center justify-between rounded-sm px-3 py-2 text-lg text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
+                                >
+                                  <span>{child.label}</span>
+                                  <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
+                                </Link>
+                                
+                                {/* Subcategories dropdown */}
+                                <div className="absolute left-full top-0 ml-1 w-64 rounded-md border bg-popover p-1 shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                  {child.children.map((subchild) => (
+                                    <Link
+                                      key={subchild.href}
+                                      href={subchild.href as any}
+                                      className="block rounded-sm px-3 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
+                                    >
+                                      {subchild.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : (
+                              // Regular category link
+                              <Link
+                                href={child.href as any}
+                                className="block rounded-sm px-3 py-2 text-lg text-popover-foreground hover:bg-accent hover:text-accent-foreground focus-visible-ring"
+                              >
+                                {child.label}
+                              </Link>
+                            )}
+                          </div>
                         ))}
                       </motion.div>
                     )}

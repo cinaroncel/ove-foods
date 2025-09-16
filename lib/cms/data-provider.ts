@@ -5,10 +5,13 @@ import {
   recipesService, 
   locationsService,
   getProductsByCategory as getProductsByCategoryFirebase,
+  getProductsByCategoryWithSubs as getProductsByCategoryWithSubsFirebase,
   getFeaturedProducts as getFeaturedProductsFirebase,
   getFeaturedRecipes as getFeaturedRecipesFirebase,
   getRecipesByProductId as getRecipesByProductIdFirebase,
-  getCategoriesOrdered
+  getCategoriesOrdered,
+  getCategoriesWithSubcategories,
+  getSubcategories
 } from '@/lib/firebase/firestore';
 
 import type { Product, Category, Recipe, Location } from '@/lib/cms/types';
@@ -50,6 +53,15 @@ export const getProductsByCategory = async (categoryId: string): Promise<Product
   }
 };
 
+export const getProductsByCategoryIncludingSubs = async (categoryId: string): Promise<Product[]> => {
+  try {
+    return await getProductsByCategoryWithSubsFirebase(categoryId);
+  } catch (error) {
+    console.warn('Failed to fetch products by category with subs:', error);
+    return [];
+  }
+};
+
 export const getFeaturedProducts = async (limit = 8): Promise<Product[]> => {
   try {
     return await getFeaturedProductsFirebase();
@@ -65,6 +77,24 @@ export const getCategories = async (): Promise<Category[]> => {
     return await getCategoriesOrdered();
   } catch (error) {
     console.warn('Failed to fetch categories:', error);
+    return [];
+  }
+};
+
+export const getCategoriesWithSubs = async (): Promise<Category[]> => {
+  try {
+    return await getCategoriesWithSubcategories();
+  } catch (error) {
+    console.warn('Failed to fetch categories with subcategories:', error);
+    return [];
+  }
+};
+
+export const getSubcategoriesForParent = async (parentCategoryId: string): Promise<Category[]> => {
+  try {
+    return await getSubcategories(parentCategoryId);
+  } catch (error) {
+    console.warn('Failed to fetch subcategories:', error);
     return [];
   }
 };

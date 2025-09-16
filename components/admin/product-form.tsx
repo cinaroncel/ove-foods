@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { uploadProductImage } from '@/lib/firebase/storage'
 import { productsService } from '@/lib/firebase/firestore'
-import { getCategories } from '@/lib/cms/data-provider'
+import { getCategoriesWithSubs } from '@/lib/cms/data-provider'
 import type { Product, Category } from '@/lib/cms/types'
 import { getProductImageUrl } from '@/lib/utils/image-utils'
 import { Trash2, Upload, Plus } from 'lucide-react'
@@ -67,8 +67,18 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
 
   const loadCategories = async () => {
     try {
-      const categoriesData = await getCategories()
-      setCategories(categoriesData)
+      const categoriesWithSubs = await getCategoriesWithSubs()
+      
+      // Flatten categories to include subcategories for the dropdown
+      const allCategories: Category[] = []
+      categoriesWithSubs.forEach(category => {
+        allCategories.push(category)
+        if (category.subcategories) {
+          allCategories.push(...category.subcategories)
+        }
+      })
+      
+      setCategories(allCategories)
     } catch (error) {
       console.error('Error loading categories:', error)
     }
@@ -246,7 +256,7 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
               <SelectContent>
                 {categories.map((category) => (
                   <SelectItem key={category.id} value={category.id}>
-                    {category.name}
+                    {category.parentCategoryId ? `  └ ${category.name}` : category.name}
                   </SelectItem>
                 ))}
               </SelectContent>
