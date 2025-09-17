@@ -32,12 +32,12 @@ export function ProductCard({
       variants={cardHover}
       className={className}
     >
-      <Card className="h-full overflow-hidden group">
-        <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-white to-gray-50 flex items-center justify-center">
+      <Card className="h-full overflow-hidden group flex flex-col">
+        <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-white to-gray-50 flex items-center justify-center flex-shrink-0">
           <Link href={`/products/${product.slug}`} className="block w-full h-full flex items-center justify-center p-6">
             <div className="relative w-full h-full">
               <Image
-                src={getProductImageUrl(product.images[0])}
+                src={getProductImageUrl(product.images?.[0])}
                 alt={product.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -71,8 +71,8 @@ export function ProductCard({
           )}
         </div>
 
-        <CardContent className="p-4 space-y-3">
-          <div>
+        <CardContent className="p-4 space-y-3 flex-grow flex flex-col">
+          <div className="flex-shrink-0">
             {category && (
               <p className="text-sm text-muted-foreground uppercase tracking-wide">
                 {category}
@@ -88,13 +88,15 @@ export function ProductCard({
             </h3>
           </div>
           
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {product.shortCopy}
-          </p>
+          <div className="h-[3.75rem] flex items-start">
+            <p className="text-sm text-muted-foreground line-clamp-3 leading-5">
+              {product.shortCopy || ' '}
+            </p>
+          </div>
           
           {/* Specs */}
           {product.specs && (
-            <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+            <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mt-auto">
               {product.specs.volume && (
                 <span className="bg-muted px-2 py-1 rounded">
                   {product.specs.volume}
@@ -109,7 +111,7 @@ export function ProductCard({
           )}
         </CardContent>
 
-        <CardFooter className="p-4 pt-0 space-y-3">
+        <CardFooter className="p-4 pt-0 space-y-3 flex-shrink-0">
           <Button asChild className="w-full">
             <Link href={`/products/${product.slug}`}>
               View Details

@@ -5,6 +5,7 @@ import { getCategories, getProducts } from '@/lib/cms/data-provider'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Package, ArrowRight } from 'lucide-react'
+import { getCategoryImageUrl } from '@/lib/utils/image-utils'
 
 export const dynamic = 'force-dynamic' // Always fetch fresh data
 
@@ -66,7 +67,7 @@ export default async function CategoriesPage() {
                 <div className="relative h-64">
                   {category.heroImage ? (
                     <Image
-                      src={`/assets/categories/${category.heroImage}`}
+                      src={getCategoryImageUrl(category.heroImage)}
                       alt={category.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"

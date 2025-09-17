@@ -10,7 +10,7 @@
     --card-foreground: 24 30% 12%;
     --popover: 0 0% 100%;
     --popover-foreground: 24 30% 12%;
-    --primary: 28 80% 52%;
+    --primary: 76 30% 32%;
     --primary-foreground: 0 0% 98%;
     --secondary: 40 15% 94%;
     --secondary-foreground: 24 30% 12%;
@@ -22,13 +22,13 @@
     --destructive-foreground: 0 0% 98%;
     --border: 40 15% 88%;
     --input: 40 15% 88%;
-    --ring: 28 80% 52%;
+    --ring: 76 30% 32%;
     --radius: 0.5rem;
 
     /* OVE Foods Brand Colors */
-    --brand-primary: 28 80% 52%; /* Warm golden olive */
+    --brand-primary: 76 30% 32%; /* Lighter warm olive green */
     --brand-accent: 145 60% 35%; /* Deep sage green */
-    --brand-warm: 35 85% 65%; /* Warm amber */
+    --brand-warm: 76 30% 40%; /* Even lighter olive green variation */
     --brand-earth: 25 45% 25%; /* Rich earth brown */
   }
 
@@ -39,7 +39,7 @@
     --card-foreground: 40 33% 95%;
     --popover: 24 30% 10%;
     --popover-foreground: 40 33% 95%;
-    --primary: 28 80% 52%;
+    --primary: 76 30% 40%;
     --primary-foreground: 24 30% 8%;
     --secondary: 24 20% 15%;
     --secondary-foreground: 40 33% 95%;
@@ -51,7 +51,7 @@
     --destructive-foreground: 40 33% 95%;
     --border: 24 20% 20%;
     --input: 24 20% 20%;
-    --ring: 28 80% 52%;
+    --ring: 76 30% 40%;
   }
 }
 

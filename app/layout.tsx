@@ -5,6 +5,7 @@ import { SkipToContent } from '@/components/layout/skip-to-content'
 import { Nav } from '@/components/layout/nav'
 import { Footer } from '@/components/layout/footer'
 import { ConsentBanner } from '@/components/consent-banner'
+import { ConditionalLayout } from '@/components/layout/conditional-layout'
 import { generateBaseMetadata, generateOrganizationJsonLd } from '@/lib/seo/metadata'
 import '@/styles/globals.css'
 
@@ -39,13 +40,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <SkipToContent />
-        <div className="relative flex min-h-screen flex-col">
-          <Nav />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
         <ConsentBanner />
         <Analytics />
       </body>

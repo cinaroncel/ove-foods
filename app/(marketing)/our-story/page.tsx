@@ -1,4 +1,4 @@
-import { Timeline } from '@/components/blocks/timeline'
+import { ModernTimeline } from '@/components/blocks/modern-timeline'
 import { Hero } from '@/components/blocks/hero'
 import { getStoryPosts } from '@/lib/cms/data-provider'
 import { generatePageMetadata } from '@/lib/seo/metadata'
@@ -48,7 +48,7 @@ export default async function OurStoryPage() {
             </p>
           </div>
           
-          <Timeline posts={storyPosts} />
+          <ModernTimeline posts={storyPosts} />
         </div>
       </section>
 

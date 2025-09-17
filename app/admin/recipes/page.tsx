@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { recipesService } from '@/lib/firebase/firestore'
+import { RecipeBulkImporter } from '@/components/admin/recipe-bulk-importer'
 import type { Recipe } from '@/lib/cms/types'
 import { Plus, Edit, Trash2, Search, Star, Clock, Users, ChefHat } from 'lucide-react'
 
@@ -118,6 +119,13 @@ export default function RecipesPage() {
                 />
               </div>
             </div>
+
+            {/* Show bulk importer if no recipes exist and not loading */}
+            {!loading && filteredRecipes.length === 0 && !searchQuery && (
+              <div className="mb-6">
+                <RecipeBulkImporter onImportComplete={loadRecipes} />
+              </div>
+            )}
 
             {loading ? (
               <div className="flex items-center justify-center py-12">

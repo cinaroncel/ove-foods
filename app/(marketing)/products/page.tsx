@@ -29,7 +29,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   // Apply filters based on search params
   const query = typeof searchParams.q === 'string' ? searchParams.q : ''
   const category = typeof searchParams.category === 'string' ? searchParams.category : ''
-  const featured = searchParams.featured === 'true'
+  const featured = searchParams.featured === 'true' ? true : undefined // Only filter featured if explicitly requested
 
   const filters: SearchFilters = {
     query,

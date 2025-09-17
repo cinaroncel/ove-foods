@@ -44,13 +44,12 @@ export default function RecipesPage() {
     const query = searchParams.get('q') || ''
     const difficulty = searchParams.get('difficulty') || ''
     const selectedTags = searchParams.getAll('tags')
-    const featured = searchParams.get('featured') === 'true'
 
     const filters: SearchFilters = {
       query,
       difficulty,
-      tags: selectedTags,
-      featured
+      tags: selectedTags
+      // Remove featured filter - recipes page should show all recipes
     }
 
     let results = recipes

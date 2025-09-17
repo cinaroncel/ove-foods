@@ -2,34 +2,39 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'admin@ovefoods.com';
+    }
+    
     // Product images - read access for everyone, write access for admin only
     match /products/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+      allow write: if isAdmin();
     }
     
     // Recipe images - read access for everyone, write access for admin only
     match /recipes/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+      allow write: if isAdmin();
     }
     
     // Category images - read access for everyone, write access for admin only
     match /categories/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+      allow write: if isAdmin();
     }
     
     // Story images - read access for everyone, write access for admin only
     match /stories/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+      allow write: if isAdmin();
     }
     
     // General assets - read access for everyone, write access for admin only
     match /assets/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'admin-user-id';
+      allow write: if isAdmin();
     }
   }
 }

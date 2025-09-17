@@ -15,6 +15,7 @@ import { uploadRecipeImage } from '@/lib/firebase/storage'
 import { recipesService } from '@/lib/firebase/firestore'
 import { getProducts } from '@/lib/cms/data-provider'
 import type { Recipe, Product } from '@/lib/cms/types'
+import { getRecipeImageUrl } from '@/lib/utils/image-utils'
 import { Trash2, Plus, X } from 'lucide-react'
 
 interface RecipeFormProps {
@@ -85,11 +86,12 @@ export function RecipeForm({ recipe, onSubmit }: RecipeFormProps) {
     setUploading(true)
     
     try {
-      const imageUrl = await uploadRecipeImage(file)
-      setHeroImage(file.name)
-    } catch (error) {
+      const downloadURL = await uploadRecipeImage(file)
+      console.log('Recipe image uploaded to Firebase Storage:', downloadURL)
+      setHeroImage(downloadURL)
+    } catch (error: any) {
       console.error('Upload error:', error)
-      setError('Failed to upload image')
+      setError('Failed to upload image: ' + error.message)
     } finally {
       setUploading(false)
     }
@@ -325,7 +327,7 @@ export function RecipeForm({ recipe, onSubmit }: RecipeFormProps) {
           {heroImage && (
             <div className="relative w-64 h-48">
               <img
-                src={`/assets/recipes/${heroImage}`}
+                src={getRecipeImageUrl(heroImage)}
                 alt="Hero image"
                 className="w-full h-full object-cover rounded border"
               />

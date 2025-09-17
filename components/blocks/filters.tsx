@@ -79,15 +79,17 @@ export function Filters({
   const updateURL = (newFilters: Record<string, string | string[]>) => {
     const params = new URLSearchParams()
     
-    // Preserve existing params and add new ones
-    searchParams.forEach((value, key) => {
-      if (!newFilters.hasOwnProperty(key)) {
-        params.append(key, value)
-      }
-    })
+    // Start fresh and build all parameters
+    const allFilters = {
+      q: searchQuery,
+      category: selectedCategory,
+      tags: selectedTags,
+      difficulty: selectedDifficulty,
+      ...newFilters
+    }
     
-    // Add new filters
-    Object.entries(newFilters).forEach(([key, value]) => {
+    // Add parameters only if they have values
+    Object.entries(allFilters).forEach(([key, value]) => {
       if (Array.isArray(value)) {
         value.forEach(v => v && params.append(key, v))
       } else if (value) {
@@ -95,18 +97,12 @@ export function Filters({
       }
     })
     
-    const url = params.toString() ? `?${params.toString()}` : ''
+    const pathname = window.location.pathname
+    const url = params.toString() ? `${pathname}?${params.toString()}` : pathname
     router.push(url, { scroll: false })
     
     // Call callback if provided
     if (onFiltersChange) {
-      const allFilters = {
-        q: searchQuery,
-        category: selectedCategory,
-        tags: selectedTags,
-        difficulty: selectedDifficulty,
-        ...newFilters
-      }
       onFiltersChange(allFilters)
     }
   }
@@ -161,7 +157,10 @@ export function Filters({
     setSelectedCategory('')
     setSelectedTags([])
     setSelectedDifficulty('')
-    router.push('', { scroll: false })
+    
+    // Navigate to current pathname without any search parameters
+    const pathname = window.location.pathname
+    router.push(pathname, { scroll: false })
     
     if (onFiltersChange) {
       onFiltersChange({})

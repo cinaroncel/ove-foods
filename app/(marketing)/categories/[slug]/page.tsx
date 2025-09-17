@@ -141,9 +141,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {subcategories.length > 0 && (
         <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Shop by Type</h3>
-            </div>
+            {/* Removed Shop by Type text - keeping cards only */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {subcategories.map((subcategory: any) => (
                 <Link

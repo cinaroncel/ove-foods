@@ -17,6 +17,7 @@ import {
   generateProductJsonLd, 
   generateBreadcrumbJsonLd 
 } from '@/lib/seo/metadata'
+import { getProductImageUrl } from '@/lib/utils/image-utils'
 import type { Metadata } from 'next'
 
 interface ProductPageProps {
@@ -104,7 +105,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="space-y-4">
               <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg bg-white">
                 <Image
-                  src={`/assets/products/${product.images[0]}`}
+                  src={getProductImageUrl(product.images[0])}
                   alt={product.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -119,7 +120,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   {product.images.slice(1, 5).map((image, index) => (
                     <div key={index} className="relative aspect-square rounded overflow-hidden bg-white">
                       <Image
-                        src={`/assets/products/${image}`}
+                        src={getProductImageUrl(image)}
                         alt={`${product.title} view ${index + 2}`}
                         fill
                         sizes="(max-width: 768px) 25vw, 12.5vw"

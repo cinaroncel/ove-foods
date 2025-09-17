@@ -23,13 +23,16 @@ function TimelineItem({ post, index }: TimelineItemProps) {
 
   return (
     <div ref={ref} className="relative">
-      {/* Timeline line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border" />
+      {/* Timeline line - hidden on mobile, centered on desktop */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border hidden lg:block" />
       
-      {/* Timeline dot */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10" />
+      {/* Timeline dot - positioned on left for mobile, center for desktop */}
+      <div className="absolute left-4 lg:left-1/2 top-6 lg:transform lg:-translate-x-1/2 lg:-translate-y-2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10" />
       
-      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+      {/* Mobile timeline line - on the left side */}
+      <div className="absolute left-6 top-0 w-0.5 h-full bg-border lg:hidden" />
+      
+      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center pl-12 lg:pl-0`}>
         {/* Content */}
         <motion.div
           initial={isEven ? slideInLeft.initial : slideInRight.initial}
@@ -61,7 +64,7 @@ function TimelineItem({ post, index }: TimelineItemProps) {
           initial={isEven ? slideInRight.initial : slideInLeft.initial}
           animate={isInView ? (isEven ? slideInRight.animate : slideInLeft.animate) : (isEven ? slideInRight.initial : slideInLeft.initial)}
           transition={{ ...slideInRight.transition, delay: 0.4 }}
-          className={`${isEven ? 'lg:order-last' : 'lg:order-first'}`}
+          className={`${isEven ? '' : 'lg:order-first'}`}
         >
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
             <Image

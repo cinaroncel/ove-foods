@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Clock, Users, ChefHat, ArrowLeft } from 'lucide-react'
+import { getRecipeImageUrl } from '@/lib/utils/image-utils'
 
 interface RecipePageProps {
   params: {
@@ -82,7 +83,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px]">
         <Image
-          src={`/assets/recipes/${recipe.heroImage}`}
+          src={getRecipeImageUrl(recipe.heroImage)}
           alt={recipe.title}
           fill
           className="object-cover"

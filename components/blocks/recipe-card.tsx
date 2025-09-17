@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import type { Recipe } from '@/lib/cms/types'
 import { cardHover } from '@/lib/motion/constants'
+import { getRecipeImageUrl } from '@/lib/utils/image-utils'
 
 interface RecipeCardProps {
   recipe: Recipe
@@ -35,16 +36,25 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
       variants={cardHover}
       className={className}
     >
-      <Card className="h-full overflow-hidden group">
-        <div className="relative aspect-[4/3] overflow-hidden">
+      <Card className="h-full overflow-hidden group flex flex-col">
+        <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
           <Link href={`/recipes/${recipe.slug}`} className="block">
-            <Image
-              src={`/assets/recipes/${recipe.heroImage}`}
-              alt={recipe.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            {/* Use regular img tag for external images to avoid Next.js Image restrictions */}
+            {recipe.heroImage?.startsWith('http') ? (
+              <img
+                src={recipe.heroImage}
+                alt={recipe.title}
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : (
+              <Image
+                src={getRecipeImageUrl(recipe.heroImage)}
+                alt={recipe.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            )}
           </Link>
           
           {/* Difficulty badge */}
@@ -66,7 +76,7 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
           )}
         </div>
 
-        <CardContent className="p-4 space-y-3">
+        <CardContent className="p-4 space-y-3 flex-grow flex flex-col">
           <div>
             <h3 className="font-semibold text-lg leading-tight mb-2">
               <Link 
@@ -77,9 +87,11 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
               </Link>
             </h3>
             
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {recipe.description}
-            </p>
+            <div className="h-[2.5rem] flex items-start">
+              <p className="text-sm text-muted-foreground line-clamp-2 leading-5">
+                {recipe.description || ' '}
+              </p>
+            </div>
           </div>
           
           {/* Recipe meta */}
@@ -99,27 +111,31 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
           </div>
           
           {/* Tags */}
-          {recipe.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1">
-              {recipe.tags.slice(0, 3).map((tag) => (
-                <Badge 
-                  key={tag} 
-                  variant="secondary" 
-                  className="text-xs capitalize"
-                >
-                  {tag}
-                </Badge>
-              ))}
-              {recipe.tags.length > 3 && (
-                <Badge variant="secondary" className="text-xs">
-                  +{recipe.tags.length - 3}
-                </Badge>
-              )}
-            </div>
-          )}
+          <div className="h-6 flex flex-wrap gap-1 mt-auto">
+            {recipe.tags.length > 0 ? (
+              <>
+                {recipe.tags.slice(0, 3).map((tag) => (
+                  <Badge 
+                    key={tag} 
+                    variant="secondary" 
+                    className="text-xs capitalize"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+                {recipe.tags.length > 3 && (
+                  <Badge variant="secondary" className="text-xs">
+                    +{recipe.tags.length - 3}
+                  </Badge>
+                )}
+              </>
+            ) : (
+              <div></div>
+            )}
+          </div>
         </CardContent>
 
-        <CardFooter className="p-4 pt-0">
+        <CardFooter className="p-4 pt-0 flex-shrink-0">
           <Button asChild className="w-full">
             <Link href={`/recipes/${recipe.slug}`}>
               View Recipe

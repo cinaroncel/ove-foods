@@ -55,15 +55,34 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
   }, [])
 
   useEffect(() => {
-    // Generate slug from title
+    // Generate slug from title and optimize based on category
     if (formData.title && !isEditing) {
-      const slug = formData.title
+      let slug = formData.title
         .toLowerCase()
         .replace(/[^a-z0-9\s]/g, '')
         .replace(/\s+/g, '-')
+      
+      // Optimize slug based on selected category
+      if (formData.categoryId && categories.length > 0) {
+        const selectedCategory = categories.find(cat => cat.id === formData.categoryId)
+        if (selectedCategory) {
+          // Remove redundant category words from slug to make it cleaner
+          const categoryWords = selectedCategory.name.toLowerCase().split(' ')
+          
+          categoryWords.forEach(word => {
+            // Remove category words from slug to avoid redundancy
+            slug = slug.replace(new RegExp(`^${word}-|${word}-${word}`, 'g'), '')
+            slug = slug.replace(new RegExp(`-${word}$`, 'g'), '')
+          })
+          
+          // Clean up any double hyphens or leading/trailing hyphens
+          slug = slug.replace(/-+/g, '-').replace(/^-|-$/g, '')
+        }
+      }
+      
       setFormData(prev => ({ ...prev, slug }))
     }
-  }, [formData.title, isEditing])
+  }, [formData.title, formData.categoryId, categories, isEditing])
 
   const loadCategories = async () => {
     try {

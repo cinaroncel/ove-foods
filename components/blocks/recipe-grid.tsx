@@ -24,7 +24,7 @@ export function RecipeGrid({
 }: RecipeGridProps) {
   if (loading) {
     return (
-      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ${className || ''}`}>
+      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ${className || ''}`}>
         {Array.from({ length: 6 }).map((_, i) => (
           <RecipeCardSkeleton key={i} />
         ))}
@@ -47,7 +47,7 @@ export function RecipeGrid({
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
         {recipes.map((recipe, index) => (
           <motion.div

@@ -1,7 +1,7 @@
 import { Hero } from '@/components/blocks/hero'
 import { ProductGrid } from '@/components/blocks/product-grid'
 import { RecipeGrid } from '@/components/blocks/recipe-grid'
-import { Timeline } from '@/components/blocks/timeline'
+import { ModernTimeline } from '@/components/blocks/modern-timeline'
 import { StatBadgeGrid } from '@/components/blocks/stat-badge'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -72,7 +72,7 @@ export default async function HomePage() {
               </p>
             </div>
             
-            <Timeline posts={timelinePosts} className="mb-12" />
+            <ModernTimeline posts={timelinePosts} className="mb-12" />
             
             <div className="text-center">
               <Button asChild size="lg" variant="outline">
