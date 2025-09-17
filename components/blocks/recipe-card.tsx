@@ -76,9 +76,10 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
           )}
         </div>
 
-        <CardContent className="p-4 space-y-3 flex-grow flex flex-col">
-          <div>
-            <h3 className="font-semibold text-lg leading-tight mb-2">
+        <CardContent className="p-4 flex-grow flex flex-col">
+          {/* Title - Fixed height */}
+          <div className="h-14 mb-3">
+            <h3 className="font-semibold text-lg leading-tight line-clamp-2">
               <Link 
                 href={`/recipes/${recipe.slug}`}
                 className="hover:text-primary transition-colors focus-visible-ring"
@@ -86,16 +87,17 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
                 {recipe.title}
               </Link>
             </h3>
-            
-            <div className="h-[2.5rem] flex items-start">
-              <p className="text-sm text-muted-foreground line-clamp-2 leading-5">
-                {recipe.description || ' '}
-              </p>
-            </div>
           </div>
           
-          {/* Recipe meta */}
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          {/* Description - Fixed height */}
+          <div className="h-10 mb-3">
+            <p className="text-sm text-muted-foreground line-clamp-2 leading-5">
+              {recipe.description || ' '}
+            </p>
+          </div>
+          
+          {/* Recipe meta - Fixed height */}
+          <div className="h-6 flex items-center gap-4 text-xs text-muted-foreground mb-3">
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               <span>{totalTime} min</span>
@@ -110,28 +112,26 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
             </div>
           </div>
           
-          {/* Tags */}
-          <div className="h-6 flex flex-wrap gap-1 mt-auto">
+          {/* Tags - Fixed height */}
+          <div className="h-6 flex flex-wrap gap-1">
             {recipe.tags.length > 0 ? (
               <>
-                {recipe.tags.slice(0, 3).map((tag) => (
+                {recipe.tags.slice(0, 2).map((tag) => (
                   <Badge 
                     key={tag} 
                     variant="secondary" 
-                    className="text-xs capitalize"
+                    className="text-xs capitalize h-6 px-2"
                   >
                     {tag}
                   </Badge>
                 ))}
-                {recipe.tags.length > 3 && (
-                  <Badge variant="secondary" className="text-xs">
-                    +{recipe.tags.length - 3}
+                {recipe.tags.length > 2 && (
+                  <Badge variant="secondary" className="text-xs h-6 px-2">
+                    +{recipe.tags.length - 2}
                   </Badge>
                 )}
               </>
-            ) : (
-              <div></div>
-            )}
+            ) : null}
           </div>
         </CardContent>
 

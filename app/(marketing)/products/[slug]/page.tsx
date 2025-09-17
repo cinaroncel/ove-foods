@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ExternalLink, Award, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { ImageSlider } from '@/components/ui/image-slider'
 import { RecipeGrid } from '@/components/blocks/recipe-grid'
 import { 
   getProductBySlug, 
@@ -101,36 +102,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <section className="section-padding">
         <div className="container mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {/* Image Gallery */}
-            <div className="space-y-4">
-              <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg bg-white">
-                <Image
-                  src={getProductImageUrl(product.images[0])}
-                  alt={product.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain p-4"
-                  priority
-                />
-              </div>
-              
-              {/* Thumbnail gallery */}
-              {product.images.length > 1 && (
-                <div className="grid grid-cols-4 gap-2">
-                  {product.images.slice(1, 5).map((image, index) => (
-                    <div key={index} className="relative aspect-square rounded overflow-hidden bg-white">
-                      <Image
-                        src={getProductImageUrl(image)}
-                        alt={`${product.title} view ${index + 2}`}
-                        fill
-                        sizes="(max-width: 768px) 25vw, 12.5vw"
-                        className="object-contain p-1"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* Image Slider */}
+            <ImageSlider 
+              images={product.images.map(image => getProductImageUrl(image))}
+              alt={product.title}
+            />
 
             {/* Product Info */}
             <div className="space-y-6">
