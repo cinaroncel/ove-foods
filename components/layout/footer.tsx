@@ -12,7 +12,6 @@ const footerLinks = {
   products: [
     { label: 'Olive Oils', href: '/products?category=olive-oils' },
     { label: 'Vinegars', href: '/products?category=vinegars' },
-    { label: 'Cooking Sprays', href: '/products?category=cooking-sprays' },
     { label: 'Specialty Products', href: '/products?category=specialty' }
   ],
   company: [

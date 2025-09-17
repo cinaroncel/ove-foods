@@ -246,55 +246,6 @@
     "featured": false
   },
   {
-    "id": "olive-oil-spray",
-    "slug": "olive-oil-spray",
-    "title": "Pure Olive Oil Cooking Spray",
-    "categoryId": "cooking-sprays",
-    "shortCopy": "100% pure olive oil in a convenient spray format for healthy, non-stick cooking.",
-    "longCopy": "Our Pure Olive Oil Cooking Spray delivers all the benefits of olive oil in a convenient, mess-free format. Made with 100% pure olive oil and no artificial propellants, it provides even coverage for pans, grills, and baking dishes. Perfect for reducing calories while maintaining flavor, this spray is ideal for roasting vegetables, grilling proteins, or preparing baked goods.",
-    "images": [
-      "olive-oil-spray-bottle.jpg",
-      "spray-in-action.jpg",
-      "grilled-vegetables.jpg"
-    ],
-    "specs": {
-      "volume": "200ml",
-      "variety": "Pure Olive Oil",
-      "origin": "Mediterranean",
-      "propellant": "None (pump action)"
-    },
-    "certifications": [
-      {
-        "label": "Non-GMO",
-        "icon": "non-gmo.svg"
-      },
-      {
-        "label": "No Artificial Additives",
-        "icon": "natural.svg"
-      }
-    ],
-    "awards": [],
-    "relatedRecipeIds": [
-      "roasted-vegetables",
-      "grilled-chicken"
-    ],
-    "retailerLinks": [
-      {
-        "label": "Target",
-        "url": "https://target.com"
-      },
-      {
-        "label": "Walmart",
-        "url": "https://walmart.com"
-      },
-      {
-        "label": "Amazon",
-        "url": "https://amazon.com"
-      }
-    ],
-    "featured": false
-  },
-  {
     "id": "lemon-olive-oil",
     "slug": "lemon-olive-oil",
     "title": "Lemon Infused Olive Oil",

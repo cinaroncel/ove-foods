@@ -16,14 +16,6 @@
     "order": 20
   },
   {
-    "id": "cooking-sprays",
-    "slug": "cooking-sprays",
-    "name": "Cooking Sprays",
-    "description": "Convenient cooking sprays for healthy, non-stick cooking with pure olive oil",
-    "heroImage": "sprays-hero.jpg",
-    "order": 30
-  },
-  {
     "id": "specialty",
     "slug": "specialty",
     "name": "Specialty Products",

@@ -154,7 +154,6 @@
       { "item": "Bell peppers", "quantity": 2, "unit": "large", "notes": "mixed colors, chunked" },
       { "item": "Red onion", "quantity": 1, "unit": "large", "notes": "wedged" },
       { "item": "Cherry tomatoes", "quantity": 2, "unit": "cups" },
-      { "item": "OVE Pure Olive Oil Cooking Spray", "quantity": 1, "unit": "as needed" },
       { "item": "OVE Premium Extra Virgin Olive Oil", "quantity": 2, "unit": "tbsp", "notes": "for finishing" },
       { "item": "Fresh rosemary", "quantity": 2, "unit": "sprigs" },
       { "item": "Fresh thyme", "quantity": 1, "unit": "tbsp" },
@@ -163,7 +162,6 @@
     "steps": [
       "Preheat oven to 425°F (220°C). Line a large baking sheet with parchment paper.",
       "Cut all vegetables into similar-sized pieces for even cooking.",
-      "Spray baking sheet with OVE Olive Oil Cooking Spray.",
       "Arrange vegetables on the baking sheet in a single layer.",
       "Season with salt, pepper, rosemary, and thyme.",
       "Roast for 25-30 minutes, stirring once halfway through.",
@@ -176,7 +174,7 @@
     },
     "servings": 6,
     "tags": ["vegetarian", "vegan", "healthy", "side-dish", "mediterranean"],
-    "relatedProductIds": ["olive-oil-spray", "extra-virgin-olive-oil-premium"],
+    "relatedProductIds": ["extra-virgin-olive-oil-premium"],
     "difficulty": "easy",
     "featured": false
   },

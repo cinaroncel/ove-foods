@@ -11,10 +11,10 @@ export const dynamic = 'force-dynamic' // Always fetch fresh data
 
 export const metadata: Metadata = {
   title: 'Product Categories - Premium Mediterranean Products',
-  description: 'Explore our curated selection of premium olive oils, vinegars, cooking sprays, and specialty products.',
+  description: 'Explore our curated selection of premium olive oils, vinegars, and specialty products.',
   openGraph: {
     title: 'Product Categories - Premium Mediterranean Products',
-    description: 'Explore our curated selection of premium olive oils, vinegars, cooking sprays, and specialty products.',
+    description: 'Explore our curated selection of premium olive oils, vinegars, and specialty products.',
   },
 }
 

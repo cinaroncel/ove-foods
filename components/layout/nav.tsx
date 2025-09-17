@@ -25,7 +25,6 @@ const navigationItems = [
         ]
       },
       { label: 'Vinegars', href: '/categories/vinegars' },
-      { label: 'Cooking Sprays', href: '/categories/cooking-sprays' },
       { label: 'Specialty Products', href: '/categories/specialty' },
     ]
   },
@@ -97,19 +96,18 @@ export function Nav() {
             <div key={item.label} className="relative">
               {item.children ? (
                 <div className="group">
-                  <button
+                  <Link
+                    href={item.href as any}
                     className={cn(
                       "flex items-center space-x-1 text-lg font-medium transition-colors hover:text-primary focus-visible-ring",
                       isActivePath(item.href) ? "text-primary" : "text-foreground"
                     )}
-                    aria-expanded={activeDropdown === item.label}
-                    aria-controls={`dropdown-${item.label}`}
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <span>{item.label}</span>
                     <ChevronDown className="h-4 w-4" />
-                  </button>
+                  </Link>
 
                   <AnimatePresence>
                     {activeDropdown === item.label && (
@@ -123,6 +121,14 @@ export function Nav() {
                         onMouseEnter={() => setActiveDropdown(item.label)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
+                        {/* All Categories link at top */}
+                        <Link
+                          href={item.href as any}
+                          className="block rounded-sm px-3 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground focus-visible-ring border-b border-border/50 mb-1"
+                        >
+                          All Categories
+                        </Link>
+                        
                         {item.children.map((child) => (
                           <div key={child.href}>
                             {child.children ? (
@@ -216,15 +222,24 @@ export function Nav() {
                 <div key={item.label} className="space-y-2">
                   {item.children ? (
                     <>
-                      <button
+                      {/* Direct link to main page */}
+                      <Link
+                        href={item.href as any}
                         className={cn(
-                          "flex w-full items-center justify-between text-left text-lg font-medium focus-visible-ring",
-                          isActivePath(item.href) ? "text-primary" : "text-foreground"
+                          "block text-lg font-medium focus-visible-ring py-3 px-2 rounded-md",
+                          isActivePath(item.href) ? "text-primary bg-primary/10" : "text-foreground"
                         )}
+                      >
+                        {item.label} - All Categories
+                      </Link>
+                      
+                      {/* Dropdown toggle button */}
+                      <button
+                        className="flex w-full items-center justify-between text-left text-base text-muted-foreground focus-visible-ring py-2 px-2 mt-1"
                         onClick={() => toggleDropdown(item.label)}
                         aria-expanded={activeDropdown === item.label}
                       >
-                        {item.label}
+                        <span>Browse by Category</span>
                         <ChevronDown 
                           className={cn(
                             "h-4 w-4 transition-transform",
@@ -238,13 +253,13 @@ export function Nav() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="ml-4 space-y-2"
+                            className="ml-4 space-y-3 pt-2"
                           >
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
                                 href={child.href as any}
-                                className="block text-lg text-muted-foreground hover:text-foreground focus-visible-ring"
+                                className="block text-base text-muted-foreground hover:text-foreground focus-visible-ring py-2 px-2 rounded-md hover:bg-muted/50"
                               >
                                 {child.label}
                               </Link>
