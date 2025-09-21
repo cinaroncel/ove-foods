@@ -191,6 +191,49 @@ export const getLocationById = async (id: string): Promise<Location | null> => {
   }
 };
 
+// Settings
+export const getHeroSettings = async () => {
+  try {
+    const settingsService = new (await import('@/lib/firebase/firestore')).FirestoreService('settings');
+    const heroSettings = await settingsService.getById('hero');
+    
+    // Return default settings if not found in database
+    if (!heroSettings) {
+      return {
+        videoSrc: '/assets/herovideo.mp4',
+        headline: 'Authentic Mediterranean Flavors',
+        subcopy: 'Premium olive oils, aged vinegars, and gourmet products crafted with three generations of Turkish expertise. From our family business to your kitchen.',
+        primaryCta: {
+          label: 'Explore Products',
+          href: '/products'
+        },
+        secondaryCta: {
+          label: 'Find Recipes',
+          href: '/recipes'
+        }
+      };
+    }
+    
+    return heroSettings;
+  } catch (error) {
+    console.warn('Failed to fetch hero settings, using defaults:', error);
+    // Fallback to default settings
+    return {
+      videoSrc: '/assets/herovideo.mp4',
+      headline: 'Authentic Mediterranean Flavors',
+      subcopy: 'Premium olive oils, aged vinegars, and gourmet products crafted with three generations of Turkish expertise. From our family business to your kitchen.',
+      primaryCta: {
+        label: 'Explore Products',
+        href: '/products'
+      },
+      secondaryCta: {
+        label: 'Find Recipes',
+        href: '/recipes'
+      }
+    };
+  }
+};
+
 // Story posts and other content - keep JSON-based for now
 export async function getStoryPosts() {
   try {

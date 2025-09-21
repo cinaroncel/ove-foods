@@ -10,7 +10,8 @@ import {
   getFeaturedRecipes, 
   getStoryPosts,
   getSustainabilityMetrics,
-  getCategories
+  getCategories,
+  getHeroSettings
 } from '@/lib/cms/data-provider'
 import { generatePageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
@@ -25,12 +26,13 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default async function HomePage() {
   // Fetch data for the page
-  const [featuredProducts, featuredRecipes, storyPosts, sustainabilityMetrics, categories] = await Promise.all([
+  const [featuredProducts, featuredRecipes, storyPosts, sustainabilityMetrics, categories, heroSettings] = await Promise.all([
     getFeaturedProducts(8),
     getFeaturedRecipes(6),
     getStoryPosts(),
     getSustainabilityMetrics(),
-    getCategories()
+    getCategories(),
+    getHeroSettings()
   ])
 
   // Get featured story posts for timeline
@@ -43,18 +45,12 @@ export default async function HomePage() {
     <>
       {/* Hero Section */}
       <Hero
-        headline="Authentic Mediterranean Flavors"
-        subcopy="Premium olive oils, aged vinegars, and gourmet products crafted with three generations of Turkish expertise. From our family business to your kitchen."
-        primaryCta={{
-          label: "Explore Products",
-          href: "/products"
-        }}
-        secondaryCta={{
-          label: "Find Recipes",
-          href: "/recipes"
-        }}
+        headline={heroSettings.headline}
+        subcopy={heroSettings.subcopy}
+        primaryCta={heroSettings.primaryCta}
+        secondaryCta={heroSettings.secondaryCta}
         video={{
-          src: "/assets/herovideo.mp4"
+          src: heroSettings.videoSrc
         }}
       />
 
