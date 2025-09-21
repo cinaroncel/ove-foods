@@ -152,7 +152,9 @@ export const getRecipesByProductId = async (productId: string): Promise<Recipe[]
 };
 
 export const getCategoriesOrdered = async (): Promise<Category[]> => {
-  return categoriesService.getOrdered('order', 'asc');
+  const categories = await categoriesService.getOrdered('order', 'asc');
+  // Filter out cooking sprays category
+  return categories.filter(category => category.id !== 'cooking-sprays');
 };
 
 // Get categories with their subcategories

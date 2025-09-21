@@ -15,6 +15,13 @@ interface CategoryPageProps {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  // Block cooking sprays category explicitly
+  if (params.slug === 'cooking-sprays') {
+    return {
+      title: 'Category Not Found'
+    }
+  }
+  
   const categoriesWithSubs = await getCategoriesWithSubs()
   
   // Flatten categories to include subcategories
@@ -57,12 +64,20 @@ export async function generateStaticParams() {
     }
   })
   
-  return allCategories.map((category) => ({
+  // Filter out cooking sprays
+  const filteredCategories = allCategories.filter(category => category.slug !== 'cooking-sprays')
+  
+  return filteredCategories.map((category) => ({
     slug: category.slug,
   }))
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  // Block cooking sprays category explicitly
+  if (params.slug === 'cooking-sprays') {
+    notFound()
+  }
+  
   const categoriesWithSubs = await getCategoriesWithSubs()
   
   // Flatten categories to include subcategories
