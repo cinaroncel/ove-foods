@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button'
 import { ArrowLeft, Package } from 'lucide-react'
 import { getCategoryImageUrl } from '@/lib/utils/image-utils'
 
+export const dynamic = 'force-dynamic' // Always fetch fresh data
+
 interface CategoryPageProps {
   params: {
     slug: string

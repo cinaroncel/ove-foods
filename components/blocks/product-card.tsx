@@ -38,6 +38,7 @@ export function ProductCard({
             <div className="relative w-full h-full">
               <Image
                 src={getProductImageUrl(product.images?.[0])}
+                unoptimized
                 alt={product.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
