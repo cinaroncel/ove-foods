@@ -10,7 +10,7 @@ import { useAnalytics } from '@/lib/analytics'
 
 const footerLinks = {
   products: [
-    { label: 'Types of Olive Oil', href: '/products?category=olive-oils' },
+    { label: 'Olive Oil', href: '/products?category=olive-oils' },
     { label: 'Vinegars', href: '/products?category=vinegars' },
     { label: 'Specialty Products', href: '/products?category=specialty' }
   ],

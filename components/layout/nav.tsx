@@ -15,7 +15,7 @@ const navigationItems = [
     href: '/products',
     children: [
       { 
-        label: 'Types of Olive Oil', 
+        label: 'Olive Oil', 
         href: '/categories/olive-oils',
         children: [
           { label: 'Organic Extra Virgin Olive Oil', href: '/categories/organic-extra-virgin-olive-oil' },
