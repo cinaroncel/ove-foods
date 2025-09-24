@@ -1,12 +1,11 @@
 import { Hero } from '@/components/blocks/hero'
-import { ProductGrid } from '@/components/blocks/product-grid'
 import { RecipeGrid } from '@/components/blocks/recipe-grid'
 import { ModernTimeline } from '@/components/blocks/modern-timeline'
 import { StatBadgeGrid } from '@/components/blocks/stat-badge'
+import { ImageAutoSlider } from '@/components/ui/image-auto-slider'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { 
-  getFeaturedProducts, 
   getFeaturedRecipes, 
   getStoryPosts,
   getSustainabilityMetrics,
@@ -26,8 +25,7 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default async function HomePage() {
   // Fetch data for the page
-  const [featuredProducts, featuredRecipes, storyPosts, sustainabilityMetrics, categories, heroSettings] = await Promise.all([
-    getFeaturedProducts(8),
+  const [featuredRecipes, storyPosts, sustainabilityMetrics, categories, heroSettings] = await Promise.all([
     getFeaturedRecipes(6),
     getStoryPosts(),
     getSustainabilityMetrics(),
@@ -56,7 +54,7 @@ export default async function HomePage() {
 
       {/* Story Teaser Section */}
       {timelinePosts.length > 0 && (
-        <section className="section-padding bg-muted/20">
+        <section className="section-padding bg-muted/20 relative">
           <div className="container mx-auto container-padding">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -79,29 +77,19 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Featured Products Section */}
-      <section className="section-padding">
+      {/* Image Gallery Section */}
+      <section className="section-padding bg-gradient-to-b from-muted/10 to-background">
         <div className="container mx-auto container-padding">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Featured Products
+              Our Heritage
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover our most beloved oils and vinegars, each crafted with care and tradition.
+              Explore the rich visual story of our Mediterranean heritage and discover the artistry that defines OVE Foods' commitment to excellence.
             </p>
           </div>
           
-          <ProductGrid 
-            products={featuredProducts} 
-            categories={categories}
-            className="mb-8"
-          />
-          
-          <div className="text-center">
-            <Button asChild size="lg" variant="outline">
-              <Link href="/products">View All Products</Link>
-            </Button>
-          </div>
+          <ImageAutoSlider />
         </div>
       </section>
 

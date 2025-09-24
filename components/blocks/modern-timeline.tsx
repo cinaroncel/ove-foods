@@ -47,13 +47,14 @@ export function ModernTimeline({ posts, className }: ModernTimelineProps) {
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="absolute left-2 md:left-2 flex items-center justify-center">
+              <div className="absolute left-4 md:left-2 flex items-center justify-center w-14 h-14 z-50">
                 <Image
                   src="/assets/scrollolive.png"
                   alt="Olive Branch"
                   width={56}
                   height={56}
                   className="object-contain"
+                  priority
                 />
               </div>
               <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-primary">
@@ -104,8 +105,9 @@ export function ModernTimeline({ posts, className }: ModernTimelineProps) {
         <div
           style={{
             height: height + "px",
+            maxHeight: "calc(100% - 2rem)",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-border to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute left-10 md:left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-border to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
