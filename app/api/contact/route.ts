@@ -69,6 +69,7 @@ Message:
 ${message}
 
 ---
+PLEASE FORWARD THIS TO: hakan@ovefoods.com
 This email was sent from the OVE Foods contact form.
 Please reply directly to the sender at: ${email}
     `.trim()
@@ -77,7 +78,7 @@ Please reply directly to the sender at: ${email}
     if (resend) {
       const { data, error } = await resend.emails.send({
         from: 'OVE Foods Contact <onboarding@resend.dev>',
-        to: ['hakan@ovefoods.com'],
+        to: ['cinaroncel1@gmail.com'],
         subject: emailSubject,
         text: emailBody,
         replyTo: email,
