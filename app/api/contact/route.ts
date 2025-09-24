@@ -76,7 +76,7 @@ Please reply directly to the sender at: ${email}
     // Send email using Resend
     if (resend) {
       const { data, error } = await resend.emails.send({
-        from: 'OVE Foods Contact <noreply@ovefoods.com>',
+        from: 'OVE Foods Contact <onboarding@resend.dev>',
         to: ['hakan@ovefoods.com'],
         subject: emailSubject,
         text: emailBody,
