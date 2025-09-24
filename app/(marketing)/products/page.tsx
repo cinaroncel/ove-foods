@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ArrowRight, Package, Sparkles, Crown, Star, Leaf } from 'lucide-react'
 import type { Category } from '@/lib/cms/types'
 
-export const dynamic = 'force-dynamic' // Always fetch fresh data
+export const dynamic = 'force-dynamic' // Always fetch fresh data from Firebase
 
 export default async function ProductsPage() {
   // Load data server-side
