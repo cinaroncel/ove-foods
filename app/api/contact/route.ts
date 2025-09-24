@@ -20,7 +20,11 @@ const topicLabels = {
   careers: 'Careers',
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend only when API key is available
+let resend: Resend | null = null
+if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== 'your_resend_api_key_here') {
+  resend = new Resend(process.env.RESEND_API_KEY)
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -70,7 +74,7 @@ Please reply directly to the sender at: ${email}
     `.trim()
 
     // Send email using Resend
-    if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== 'your_resend_api_key_here') {
+    if (resend) {
       const { data, error } = await resend.emails.send({
         from: 'OVE Foods Contact <noreply@ovefoods.com>',
         to: ['hakan@ovefoods.com'],
