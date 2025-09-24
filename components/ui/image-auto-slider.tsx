@@ -14,12 +14,12 @@ export const ImageAutoSlider = ({
 }: ImageAutoSliderProps) => {
   // Default images from the self-slider folder
   const defaultImages = [
-    "/assets/self-slider/output.png",
-    "/assets/self-slider/output-2.png", 
-    "/assets/self-slider/output-3.png",
-    "/assets/self-slider/output-4.png",
-    "/assets/self-slider/output-5.png",
-    "/assets/self-slider/output-6.png"
+    "/assets/self-slider/slide1.jpg",
+    "/assets/self-slider/slide2.jpg", 
+    "/assets/self-slider/slide3.jpg",
+    "/assets/self-slider/slide4.jpg",
+    "/assets/self-slider/slide5.jpg",
+    "/assets/self-slider/slide6.jpg"
   ];
 
   const slideImages = images || defaultImages;
