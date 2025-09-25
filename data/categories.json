@@ -22,5 +22,29 @@
     "description": "Unique blends and infused oils for the adventurous home chef",
     "heroImage": "specialty-hero.jpg",
     "order": 40
+  },
+  {
+    "id": "honey",
+    "slug": "honey",
+    "name": "Honey",
+    "description": "Pure and natural honey varieties with distinct flavors and textures",
+    "heroImage": "honey-hero.jpg",
+    "order": 50
+  },
+  {
+    "id": "seasoning",
+    "slug": "seasoning",
+    "name": "Seasoning",
+    "description": "Premium spices, herbs, and seasoning blends to enhance your culinary creations",
+    "heroImage": "seasoning-hero.jpg",
+    "order": 60
+  },
+  {
+    "id": "gourmet-products",
+    "slug": "gourmet-products",
+    "name": "Gourmet Products",
+    "description": "Carefully curated selection of artisanal and gourmet food products",
+    "heroImage": "gourmet-products-hero.jpg",
+    "order": 70
   }
 ]
