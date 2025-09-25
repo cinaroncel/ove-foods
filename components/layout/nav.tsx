@@ -26,6 +26,9 @@ const navigationItems = [
       },
       { label: 'Vinegars', href: '/categories/vinegars' },
       { label: 'Specialty Products', href: '/categories/specialty' },
+      { label: 'Honey', href: '/categories/honey' },
+      { label: 'Seasoning', href: '/categories/seasoning' },
+      { label: 'Gourmet Products', href: '/categories/gourmet-products' },
     ]
   },
   {
