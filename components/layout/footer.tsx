@@ -10,20 +10,20 @@ import { useAnalytics } from '@/lib/analytics'
 
 const footerLinks = {
   products: [
-    { label: 'Olive Oil', href: '/products?category=olive-oils' },
-    { label: 'Vinegars', href: '/products?category=vinegars' },
-    { label: 'Specialty Products', href: '/products?category=specialty' }
+    { label: 'Olive Oil', href: '/categories/olive-oils' },
+    { label: 'Vinegars', href: '/categories/vinegars' },
+    { label: 'Honey', href: '/categories/honey' },
+    { label: 'Seasoning', href: '/categories/seasoning' },
+    { label: 'Gourmet Products', href: '/categories/gourmet-products' }
   ],
   company: [
     { label: 'Our Story', href: '/our-story' },
     { label: 'Sustainability', href: '/sustainability' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Press', href: '/press' }
+    { label: 'Where to Buy', href: '/where-to-buy' }
   ],
   support: [
     { label: 'Contact Us', href: '/contact' },
-    { label: 'Recipes', href: '/recipes' },
-    { label: 'FAQ', href: '/faq' }
+    { label: 'Recipes', href: '/recipes' }
   ],
   legal: [
     { label: 'Privacy Policy', href: '/legal/privacy' },
@@ -108,7 +108,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/assets/logo.png"
+                src="/ovelogonet.png"
                 alt="OVE Foods"
                 width={150}
                 height={50}
@@ -191,25 +191,46 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>1234 Mediterranean Way</p>
-              <p>San Francisco, CA 94105</p>
-              <p>
-                <a 
-                  href="tel:+15551234567" 
-                  className="hover:text-primary transition-colors focus-visible-ring"
-                >
-                  (555) 123-4567
-                </a>
-              </p>
-              <p>
-                <a 
-                  href="mailto:info@ovefoods.com" 
-                  className="hover:text-primary transition-colors focus-visible-ring flex items-center gap-1"
-                >
-                  <Mail className="h-4 w-4" />
-                  info@ovefoods.com
-                </a>
-              </p>
+              <div>
+                <h4 className="font-medium text-foreground">General Inquiries</h4>
+                <p>
+                  <a 
+                    href="mailto:info@ovefoods.com" 
+                    className="hover:text-primary transition-colors focus-visible-ring flex items-center gap-1"
+                  >
+                    <Mail className="h-4 w-4" />
+                    info@ovefoods.com
+                  </a>
+                </p>
+                <p>
+                  <a 
+                    href="tel:+15551234567" 
+                    className="hover:text-primary transition-colors focus-visible-ring"
+                  >
+                    (555) 123-4567
+                  </a>
+                </p>
+              </div>
+              
+              <div className="pt-2">
+                <h4 className="font-medium text-foreground">Wholesale</h4>
+                <p>
+                  <a 
+                    href="mailto:wholesale@ovefoods.com" 
+                    className="hover:text-primary transition-colors focus-visible-ring"
+                  >
+                    wholesale@ovefoods.com
+                  </a>
+                </p>
+                <p>
+                  <a 
+                    href="tel:+15551234568" 
+                    className="hover:text-primary transition-colors focus-visible-ring"
+                  >
+                    (555) 123-4568
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
