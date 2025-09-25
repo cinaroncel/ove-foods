@@ -190,46 +190,45 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
-            <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="space-y-3 text-sm text-muted-foreground">
+              {/* Address */}
               <div>
-                <h4 className="font-medium text-foreground">General Inquiries</h4>
-                <p>
-                  <a 
-                    href="mailto:info@ovefoods.com" 
-                    className="hover:text-primary transition-colors focus-visible-ring flex items-center gap-1"
-                  >
-                    <Mail className="h-4 w-4" />
-                    info@ovefoods.com
-                  </a>
-                </p>
-                <p>
-                  <a 
-                    href="tel:+15551234567" 
-                    className="hover:text-primary transition-colors focus-visible-ring"
-                  >
-                    (555) 123-4567
-                  </a>
-                </p>
+                <h4 className="font-medium text-foreground mb-1">Address</h4>
+                <div className="space-y-1">
+                  <p>Folkart Time, Kazım Dirik Dist.</p>
+                  <p>284 Str. No:2, Gate No:112</p>
+                  <p>Bornova-Izmir, Turkey</p>
+                </div>
               </div>
-              
-              <div className="pt-2">
-                <h4 className="font-medium text-foreground">Wholesale</h4>
-                <p>
-                  <a 
-                    href="mailto:wholesale@ovefoods.com" 
-                    className="hover:text-primary transition-colors focus-visible-ring"
-                  >
-                    wholesale@ovefoods.com
-                  </a>
-                </p>
-                <p>
-                  <a 
-                    href="tel:+15551234568" 
-                    className="hover:text-primary transition-colors focus-visible-ring"
-                  >
-                    (555) 123-4568
-                  </a>
-                </p>
+
+              {/* Contact Info */}
+              <div>
+                <h4 className="font-medium text-foreground mb-1">Contact Info</h4>
+                <div className="space-y-1">
+                  <p>
+                    <span className="inline-block w-12">Phone:</span>
+                    <a 
+                      href="tel:+902326833021" 
+                      className="hover:text-primary transition-colors focus-visible-ring"
+                    >
+                      +90 (232) 683 30 21
+                    </a>
+                  </p>
+                  <p>
+                    <span className="inline-block w-12">Fax:</span>
+                    <span>+90 (232) 683 30 22</span>
+                  </p>
+                  <p className="flex items-center gap-1">
+                    <span className="inline-block w-12">Email:</span>
+                    <a 
+                      href="mailto:info@ovefoods.com" 
+                      className="hover:text-primary transition-colors focus-visible-ring flex items-center gap-1"
+                    >
+                      <Mail className="h-4 w-4" />
+                      info@ovefoods.com
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
