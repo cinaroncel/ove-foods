@@ -19,27 +19,31 @@ const getCategoryTheme = (slug: string) => {
     bgPattern: string;
     accentColor: string;
     badgeText: string;
+    heroImage?: string;
   }> = {
     'olive-oils': {
       icon: Droplets,
       gradient: 'from-emerald-900 via-emerald-800 to-green-900',
       bgPattern: '#059669',
       accentColor: 'text-emerald-400',
-      badgeText: 'Premium Quality'
+      badgeText: 'Premium Quality',
+      heroImage: '/assets/heroeess/oliveoilheroo.png'
     },
     'organic-extra-virgin-olive-oil': {
       icon: Sparkles,
       gradient: 'from-green-900 via-emerald-800 to-teal-900',
       bgPattern: '#0d9488',
       accentColor: 'text-teal-400',
-      badgeText: 'Organic & Pure'
+      badgeText: 'Organic & Pure',
+      heroImage: '/assets/heroeess/organicevhero.jpg'
     },
     'extra-virgin-olive-oil': {
       icon: Crown,
       gradient: 'from-amber-900 via-yellow-800 to-orange-900',
       bgPattern: '#d97706',
       accentColor: 'text-amber-400',
-      badgeText: 'Extra Virgin'
+      badgeText: 'Extra Virgin',
+      heroImage: '/assets/heroeess/evpagehero.jpg'
     },
     'vinegars': {
       icon: Droplets,
@@ -53,21 +57,24 @@ const getCategoryTheme = (slug: string) => {
       gradient: 'from-yellow-900 via-amber-800 to-orange-900',
       bgPattern: '#f59e0b',
       accentColor: 'text-yellow-400',
-      badgeText: 'Pure & Natural'
+      badgeText: 'Pure & Natural',
+      heroImage: '/assets/heroeess/honeypagehero.png'
     },
     'seasoning': {
       icon: Salad,
       gradient: 'from-orange-900 via-red-800 to-rose-900',
       bgPattern: '#dc2626',
       accentColor: 'text-orange-400',
-      badgeText: 'Artisanal Blend'
+      badgeText: 'Artisanal Blend',
+      heroImage: '/assets/heroeess/seasoninpagehero.png'
     },
     'gourmet-products': {
       icon: Gift,
       gradient: 'from-purple-900 via-indigo-800 to-blue-900',
       bgPattern: '#7c3aed',
       accentColor: 'text-purple-400',
-      badgeText: 'Gourmet Selection'
+      badgeText: 'Gourmet Selection',
+      heroImage: '/assets/heroeess/gourmetpphero.png'
     },
     'specialty': {
       icon: Sparkles,
@@ -81,7 +88,8 @@ const getCategoryTheme = (slug: string) => {
       gradient: 'from-green-900 via-teal-800 to-cyan-900',
       bgPattern: '#059669',
       accentColor: 'text-green-400',
-      badgeText: 'Pure & Clean'
+      badgeText: 'Pure & Clean',
+      heroImage: '/assets/heroeess/pureoliveoilhero.jpg'
     },
     'infused-olive-oils': {
       icon: Sparkles,
@@ -219,76 +227,39 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       {/* Hero Section */}
-      <section className={`relative overflow-hidden bg-gradient-to-br ${theme.gradient} py-24 lg:py-32`}>
-        {/* Background Pattern */}
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg%20width%3D%2760%27%20height%3D%2760%27%20viewBox%3D%270%200%2060%2060%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cg%20fill%3D%27none%27%20fill-rule%3D%27evenodd%27%3E%3Cg%20fill%3D%27${encodeURIComponent(theme.bgPattern)}%27%20fill-opacity%3D%270.05%27%3E%3Ccircle%20cx%3D%2730%27%20cy%3D%2730%27%20r%3D%274%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}
-        ></div>
+      <section className="relative overflow-hidden h-[60vh] min-h-[500px]">
+        {/* Background Image */}
+        {theme.heroImage ? (
+          <Image
+            src={theme.heroImage}
+            alt={category.name}
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient}`} />
+        )}
         
-        {/* Accent lines */}
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/30 to-transparent"></div>
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/30 to-transparent"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
         
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-5xl mx-auto">
-            {/* Category Icon */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl scale-150"></div>
-                <div className="relative bg-gradient-to-br from-primary to-accent p-4 rounded-full">
-                  <IconComponent className="w-8 h-8 text-primary-foreground" />
-                </div>
-              </div>
-            </div>
-
+        <div className="container mx-auto px-4 relative h-full flex items-center">
+          <div className="text-left max-w-4xl">
             {/* Badge */}
-            <div className="flex justify-center mb-6">
-              <Badge variant="secondary" className={`${theme.accentColor} bg-white/10 border-white/20 px-4 py-2 text-sm font-medium`}>
+            <div className="mb-6">
+              <Badge variant="secondary" className="bg-white/20 border-white/30 text-white px-4 py-2 text-sm font-medium">
                 {theme.badgeText}
               </Badge>
             </div>
             
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight">
-              <span className="block text-white mb-2">{category.name.split(' ').slice(0, -1).join(' ')}</span>
-              <span className={`block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent`}>
-                {category.name.split(' ').slice(-1)[0]}
-              </span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
+              {category.name}
             </h1>
             
-            <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-white/90 max-w-2xl mb-8 leading-relaxed">
               {category.description}
             </p>
-
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mb-8">
-              <div className="text-center">
-                <div className={`text-2xl font-bold ${theme.accentColor}`}>{categoryProducts.length}+</div>
-                <div className="text-white/80 text-sm">Products</div>
-              </div>
-              {subcategories.length > 0 && (
-                <div className="text-center">
-                  <div className={`text-2xl font-bold ${theme.accentColor}`}>{subcategories.length}</div>
-                  <div className="text-white/80 text-sm">Categories</div>
-                </div>
-              )}
-              <div className="text-center">
-                <div className={`text-2xl font-bold ${theme.accentColor}`}>Premium</div>
-                <div className="text-white/80 text-sm">Quality</div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
-                Shop Now
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
       </section>
