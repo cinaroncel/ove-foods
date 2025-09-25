@@ -110,6 +110,11 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
   return categories.find(category => category.slug === slug) || null
 }
 
+export async function getCategoriesWithSubs(): Promise<Category[]> {
+  // For now, just return regular categories since we don't have subcategories in JSON
+  return await getCategories()
+}
+
 export async function getProducts(): Promise<Product[]> {
   try {
     const response = await import('../../data/products.json')
@@ -128,6 +133,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export async function getProductsByCategory(categoryId: string): Promise<Product[]> {
   const products = await getProducts()
   return products.filter(product => product.categoryId === categoryId)
+}
+
+export async function getProductsByCategoryIncludingSubs(categoryId: string): Promise<Product[]> {
+  // For now, just return products from the category since we don't have subcategories in JSON
+  return await getProductsByCategory(categoryId)
 }
 
 export async function getFeaturedProducts(limit = 8): Promise<Product[]> {

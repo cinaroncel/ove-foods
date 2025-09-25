@@ -33,7 +33,7 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 
 export const getProductsByCategory = async (categoryId: string): Promise<Product[]> => {
   try {
-    return await getProductsByCategoryFirebase(categoryId);
+    return await JsonProvider.getProductsByCategory(categoryId);
   } catch (error) {
     console.warn('Failed to fetch products by category:', error);
     return [];
@@ -42,7 +42,7 @@ export const getProductsByCategory = async (categoryId: string): Promise<Product
 
 export const getProductsByCategoryIncludingSubs = async (categoryId: string): Promise<Product[]> => {
   try {
-    return await getProductsByCategoryWithSubsFirebase(categoryId);
+    return await JsonProvider.getProductsByCategoryIncludingSubs(categoryId);
   } catch (error) {
     console.warn('Failed to fetch products by category with subs:', error);
     return [];
