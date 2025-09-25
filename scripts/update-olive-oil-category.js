@@ -42,7 +42,7 @@ async function updateOliveOilCategory() {
     
     // Update the category
     const updateData = {
-      name: 'Olive Oil',
+      name: 'Types of Olive Oil',
       description: 'Premium extra virgin and classic olive oil crafted from the finest Mediterranean olives'
     };
     
