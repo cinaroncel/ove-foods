@@ -10,6 +10,7 @@ const contactFormSchema = z.object({
   topic: z.enum(['general', 'wholesale', 'media', 'sustainability', 'careers']),
   message: z.string().min(10).max(1000),
   honeypot: z.string().max(0).optional(),
+  recaptchaToken: z.string().min(1, 'Please complete the reCAPTCHA'),
 })
 
 const topicLabels = {
@@ -24,6 +25,31 @@ const topicLabels = {
 let resend: Resend | null = null
 if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== 'your_resend_api_key_here') {
   resend = new Resend(process.env.RESEND_API_KEY)
+}
+
+// Verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  if (!process.env.RECAPTCHA_SECRET_KEY || process.env.RECAPTCHA_SECRET_KEY === 'your_recaptcha_secret_key_here') {
+    // Skip verification in development if secret key is not set
+    console.log('reCAPTCHA verification skipped - no secret key configured')
+    return true
+  }
+
+  try {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+    })
+
+    const data = await response.json()
+    return data.success === true
+  } catch (error) {
+    console.error('reCAPTCHA verification error:', error)
+    return false
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -44,12 +70,21 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { name, email, phone, company, topic, message, honeypot } = validationResult.data
+    const { name, email, phone, company, topic, message, honeypot, recaptchaToken } = validationResult.data
 
     // Check honeypot field for bot detection
     if (honeypot && honeypot.length > 0) {
       return NextResponse.json(
         { success: false, error: 'Invalid submission' },
+        { status: 400 }
+      )
+    }
+
+    // Verify reCAPTCHA
+    const isRecaptchaValid = await verifyRecaptcha(recaptchaToken)
+    if (!isRecaptchaValid) {
+      return NextResponse.json(
+        { success: false, error: 'reCAPTCHA verification failed. Please try again.' },
         { status: 400 }
       )
     }

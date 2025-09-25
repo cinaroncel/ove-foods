@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -41,8 +42,10 @@ export default function ContactPage() {
     type: 'success' | 'error' | null
     message: string
   }>({ type: null, message: '' })
+  const [recaptchaToken, setRecaptchaToken] = React.useState<string | null>(null)
   
   const analytics = useAnalytics()
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null)
 
   const {
     register,
@@ -70,13 +73,23 @@ export default function ContactPage() {
     setIsSubmitting(true)
     setSubmitStatus({ type: null, message: '' })
 
+    // Check if reCAPTCHA is completed
+    if (!recaptchaToken) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please complete the reCAPTCHA verification.'
+      })
+      setIsSubmitting(false)
+      return
+    }
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       })
 
       const result = await response.json()
@@ -88,6 +101,8 @@ export default function ContactPage() {
         })
         analytics.contactSubmit({ topic: data.topic })
         reset()
+        setRecaptchaToken(null)
+        recaptchaRef.current?.reset()
       } else {
         setSubmitStatus({
           type: 'error',
@@ -226,6 +241,25 @@ export default function ContactPage() {
                     />
                     {errors.message && (
                       <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                    )}
+                  </div>
+
+                  {/* reCAPTCHA */}
+                  <div>
+                    {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY !== 'your_recaptcha_site_key_here' ? (
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                        onChange={(token) => setRecaptchaToken(token)}
+                        onExpired={() => setRecaptchaToken(null)}
+                        onError={() => setRecaptchaToken(null)}
+                      />
+                    ) : (
+                      <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-md">
+                        <p className="text-sm text-yellow-800">
+                          reCAPTCHA is not configured. Please set up your reCAPTCHA keys in the environment variables.
+                        </p>
+                      </div>
                     )}
                   </div>
 
