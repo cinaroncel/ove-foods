@@ -1,12 +1,25 @@
-// Temporarily using JSON data provider instead of Firebase
-import * as JsonProvider from './data-provider-json-backup';
+// Firebase-based data provider to replace the JSON file-based one
+import { 
+  productsService, 
+  categoriesService, 
+  recipesService, 
+  locationsService,
+  getProductsByCategory as getProductsByCategoryFirebase,
+  getProductsByCategoryWithSubs as getProductsByCategoryWithSubsFirebase,
+  getFeaturedProducts as getFeaturedProductsFirebase,
+  getFeaturedRecipes as getFeaturedRecipesFirebase,
+  getRecipesByProductId as getRecipesByProductIdFirebase,
+  getCategoriesOrdered,
+  getCategoriesWithSubcategories,
+  getSubcategories
+} from '@/lib/firebase/firestore';
 
 import type { Product, Category, Recipe, Location } from '@/lib/cms/types';
 
 // Products
 export const getProducts = async (): Promise<Product[]> => {
   try {
-    return await JsonProvider.getProducts();
+    return await productsService.getAll();
   } catch (error) {
     console.warn('Failed to fetch products:', error);
     return [];
@@ -33,7 +46,7 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 
 export const getProductsByCategory = async (categoryId: string): Promise<Product[]> => {
   try {
-    return await JsonProvider.getProductsByCategory(categoryId);
+    return await getProductsByCategoryFirebase(categoryId);
   } catch (error) {
     console.warn('Failed to fetch products by category:', error);
     return [];
@@ -42,7 +55,7 @@ export const getProductsByCategory = async (categoryId: string): Promise<Product
 
 export const getProductsByCategoryIncludingSubs = async (categoryId: string): Promise<Product[]> => {
   try {
-    return await JsonProvider.getProductsByCategoryIncludingSubs(categoryId);
+    return await getProductsByCategoryWithSubsFirebase(categoryId);
   } catch (error) {
     console.warn('Failed to fetch products by category with subs:', error);
     return [];
@@ -61,7 +74,7 @@ export const getFeaturedProducts = async (limit = 8): Promise<Product[]> => {
 // Categories
 export const getCategories = async (): Promise<Category[]> => {
   try {
-    return await JsonProvider.getCategories();
+    return await getCategoriesOrdered();
   } catch (error) {
     console.warn('Failed to fetch categories:', error);
     return [];
@@ -70,7 +83,7 @@ export const getCategories = async (): Promise<Category[]> => {
 
 export const getCategoriesWithSubs = async (): Promise<Category[]> => {
   try {
-    return await JsonProvider.getCategoriesWithSubs();
+    return await getCategoriesWithSubcategories();
   } catch (error) {
     console.warn('Failed to fetch categories with subcategories:', error);
     return [];

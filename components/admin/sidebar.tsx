@@ -9,7 +9,8 @@ import {
   ChefHat, 
   Image as ImageIcon, 
   LogOut,
-  Settings
+  Settings,
+  Tags
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -17,6 +18,7 @@ import { cn } from '@/lib/utils'
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: Home },
   { name: 'Products', href: '/admin/products', icon: Package },
+  { name: 'Categories', href: '/admin/categories', icon: Tags },
   { name: 'Recipes', href: '/admin/recipes', icon: ChefHat },
   { name: 'Media', href: '/admin/media', icon: ImageIcon },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
