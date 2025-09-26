@@ -1,82 +1,12 @@
-'use client'
-
-import * as React from 'react'
-import { RecipeGrid } from '@/components/blocks/recipe-grid'
-import { Filters } from '@/components/blocks/filters'
 import { getRecipes } from '@/lib/cms/data-provider'
-import { RecipeSearch, filterRecipes, getUniqueRecipeTags, getDifficultyLevels } from '@/lib/search'
-import { useSearchParams } from 'next/navigation'
-import type { Recipe, SearchFilters } from '@/lib/cms/types'
+import { getUniqueRecipeTags } from '@/lib/search'
+import RecipesClient from './recipes-client'
+import type { Recipe } from '@/lib/cms/types'
 
-export default function RecipesPage() {
-  const searchParams = useSearchParams()
-  const [recipes, setRecipes] = React.useState<Recipe[]>([])
-  const [filteredRecipes, setFilteredRecipes] = React.useState<Recipe[]>([])
-  const [loading, setLoading] = React.useState(true)
-  const [recipeSearch, setRecipeSearch] = React.useState<RecipeSearch | null>(null)
-  const [tags, setTags] = React.useState<string[]>([])
-
-  // Load initial data
-  React.useEffect(() => {
-    async function loadData() {
-      try {
-        const recipesData = await getRecipes()
-        const uniqueTags = getUniqueRecipeTags(recipesData)
-        
-        setRecipes(recipesData)
-        setFilteredRecipes(recipesData)
-        setRecipeSearch(new RecipeSearch(recipesData))
-        setTags(uniqueTags)
-      } catch (error) {
-        console.error('Error loading recipes:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadData()
-  }, [])
-
-  // Apply filters when search params change
-  React.useEffect(() => {
-    if (!recipes.length || !recipeSearch) return
-
-    const query = searchParams.get('q') || ''
-    const difficulty = searchParams.get('difficulty') || ''
-    const selectedTags = searchParams.getAll('tags')
-
-    const filters: SearchFilters = {
-      query,
-      difficulty,
-      tags: selectedTags
-      // Remove featured filter - recipes page should show all recipes
-    }
-
-    let results = recipes
-
-    // Apply search if query exists
-    if (query) {
-      const searchResults = recipeSearch.search(query, filters)
-      results = searchResults.map(result => result.item)
-    } else {
-      // Apply filters without search
-      results = filterRecipes(recipes, filters)
-    }
-
-    setFilteredRecipes(results)
-  }, [searchParams, recipes, recipeSearch])
-
-  // Create filter options
-  const tagOptions = tags.map(tag => ({
-    label: tag.charAt(0).toUpperCase() + tag.slice(1),
-    value: tag,
-    count: recipes.filter(r => r.tags.includes(tag)).length
-  }))
-
-  const difficultyOptions = getDifficultyLevels().map(level => ({
-    ...level,
-    count: recipes.filter(r => r.difficulty === level.value).length
-  }))
+export default async function RecipesPage() {
+  // Server-side data fetching
+  const recipes = await getRecipes()
+  const tags = getUniqueRecipeTags(recipes)
 
   return (
     <div className="min-h-screen">
@@ -94,42 +24,7 @@ export default function RecipesPage() {
       </section>
 
       {/* Content */}
-      <section className="section-padding">
-        <div className="container mx-auto container-padding">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Filters Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <Filters
-                  searchPlaceholder="Search recipes..."
-                  tags={tagOptions}
-                  difficulties={difficultyOptions}
-                  showCategories={false}
-                  showTags={true}
-                  showDifficulties={true}
-                />
-              </div>
-            </div>
-
-            {/* Recipes Grid */}
-            <div className="lg:col-span-3">
-              <div className="mb-6 flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">
-                  {loading 
-                    ? 'Loading recipes...' 
-                    : `${filteredRecipes.length} recipe${filteredRecipes.length === 1 ? '' : 's'} found`
-                  }
-                </p>
-              </div>
-
-              <RecipeGrid
-                recipes={filteredRecipes}
-                loading={loading}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <RecipesClient initialRecipes={recipes} tags={tags} />
     </div>
   )
 }

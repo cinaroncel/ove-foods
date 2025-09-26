@@ -23,7 +23,7 @@ const auth = getAuth(app)
 async function createAdminUser() {
   try {
     const adminEmail = 'admin@ovefoods.com'
-    const adminPassword = 'OveAdmin2024!' // Secure password
+    const adminPassword = 'Yagiz18812003' // Updated password
 
     console.log('Creating admin user...')
     
@@ -42,7 +42,7 @@ async function createAdminUser() {
     if (error.code === 'auth/email-already-exists') {
       console.log('✅ Admin user already exists!')
       console.log('Email: admin@ovefoods.com')
-      console.log('Password: OveAdmin2024!')
+      console.log('Password: Yagiz18812003')
       console.log('\n🔗 Access the admin panel at:')
       console.log('   • Local: http://localhost:3000/admin/login')
       console.log('   • Live:  https://ove-foods.vercel.app/admin/login')

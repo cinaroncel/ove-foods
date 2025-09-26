@@ -9,7 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "husky install || echo 'Husky not available in production'",
     "migrate": "tsx scripts/migrate-data.ts",
     "migrate:emulator": "tsx scripts/migrate-data-emulator.ts",
     "fix-images": "tsx scripts/fix-images.ts",

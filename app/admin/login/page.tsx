@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="admin@ovefoods.com"
+                placeholder="Enter your email"
               />
             </div>
             <div className="space-y-2">
