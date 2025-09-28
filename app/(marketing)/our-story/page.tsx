@@ -173,10 +173,15 @@ export default async function OurStoryPage() {
             </div>
 
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
-              <div className="w-full h-full bg-muted flex items-center justify-center">
-                <div className="text-muted-foreground text-center">
-                  <div className="text-4xl mb-2">👨‍👩‍👧‍👦</div>
-                  <p>The Olivetti Family</p>
+              <div className="w-full h-full bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">👨‍👩‍👧‍👦</div>
+                  <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    The OVE Family
+                  </h3>
+                  <p className="text-lg text-muted-foreground mt-2 font-medium">
+                    Three Generations of Excellence
+                  </p>
                 </div>
               </div>
             </div>
