@@ -86,6 +86,7 @@ export class StorageService {
 export const productImagesStorage = new StorageService('products');
 export const recipeImagesStorage = new StorageService('recipes');
 export const categoryImagesStorage = new StorageService('categories');
+export const certificationsStorage = new StorageService('certifications');
 export const generalImagesStorage = new StorageService('images');
 
 // Helper functions
@@ -99,4 +100,8 @@ export const uploadRecipeImage = (file: File, fileName?: string) => {
 
 export const uploadCategoryImage = (file: File, fileName?: string) => {
   return categoryImagesStorage.uploadFile(file, fileName);
+};
+
+export const uploadCertificationImage = (file: File, fileName?: string) => {
+  return certificationsStorage.uploadFile(file, fileName);
 };

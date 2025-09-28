@@ -84,6 +84,7 @@ export default function CertificationsPage() {
                 className="w-full h-auto mx-auto rounded-lg"
                 priority
                 quality={90}
+                unoptimized
               />
               <p className="text-sm text-muted-foreground mt-4 italic">
                 Our internationally recognized certifications ensuring the highest quality and safety standards
