@@ -77,14 +77,13 @@ export default function CertificationsPage() {
           <div className="mb-16 text-center">
             <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto border border-primary/10">
               <Image
-                src="/assets/certifications/all-certifications.png"
+                src="https://firebasestorage.googleapis.com/v0/b/ove-foods.firebasestorage.app/o/assets%2Fall-certifications.png?alt=media"
                 alt="OVE Foods Certifications - ISO 22000, KOSHER, JAS, USDA ORGANIC, ISO 14001, ISO 9001:2015, ISO 45001, FSSC 22000"
                 width={800}
                 height={400}
                 className="w-full h-auto mx-auto rounded-lg"
                 priority
                 quality={90}
-                unoptimized
               />
               <p className="text-sm text-muted-foreground mt-4 italic">
                 Our internationally recognized certifications ensuring the highest quality and safety standards
