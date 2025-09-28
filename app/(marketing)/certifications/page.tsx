@@ -52,7 +52,7 @@ const certifications = [
 ]
 
 export default function CertificationsPage() {
-  // Force deployment update - using Firebase Storage URL
+  // VERCEL DEPLOYMENT FIX - Firebase Storage URL
   return (
     <div className="min-h-screen">
       {/* Header */}
