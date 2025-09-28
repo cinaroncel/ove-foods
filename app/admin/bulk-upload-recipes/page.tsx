@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/lib/auth/admin-auth';
 
 const newRecipes = [
   {
@@ -232,9 +233,34 @@ const newRecipes = [
 ];
 
 export default function BulkUploadRecipesPage() {
+  const { user, loading } = useAuth();
   const [isUploading, setIsUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
+
+  // Check if user is authenticated
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Authentication Required</h1>
+          <p>Please log in to access this page.</p>
+          <Button asChild className="mt-4">
+            <a href="/admin">Go to Admin Login</a>
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const uploadRecipes = async () => {
     setIsUploading(true);
