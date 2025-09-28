@@ -50,7 +50,8 @@ const getCategoryTheme = (slug: string) => {
       gradient: 'from-red-900 via-rose-800 to-pink-900',
       bgPattern: '#be123c',
       accentColor: 'text-rose-400',
-      badgeText: 'Aged & Refined'
+      badgeText: 'Aged & Refined',
+      heroImage: '/assets/heroeess/vinegarspagehero.png'
     },
     'honey': {
       icon: Coffee,
@@ -81,7 +82,8 @@ const getCategoryTheme = (slug: string) => {
       gradient: 'from-indigo-900 via-purple-800 to-pink-900',
       bgPattern: '#8b5cf6',
       accentColor: 'text-indigo-400',
-      badgeText: 'Specialty Items'
+      badgeText: 'Specialty Items',
+      heroImage: '/assets/heroeess/specialtypagehero.png'
     },
     'pure-olive-oil': {
       icon: Droplets,
@@ -96,7 +98,8 @@ const getCategoryTheme = (slug: string) => {
       gradient: 'from-violet-900 via-purple-800 to-fuchsia-900',
       bgPattern: '#a855f7',
       accentColor: 'text-violet-400',
-      badgeText: 'Infused Flavors'
+      badgeText: 'Infused Flavors',
+      heroImage: '/assets/heroeess/infusedoliveoilshero.png'
     }
   }
   
@@ -298,7 +301,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Our {category.name}
+                  {category.name}
                 </h2>
                 <p className="text-gray-600">
                   {categoryProducts.length} product{categoryProducts.length !== 1 ? 's' : ''} available
@@ -354,30 +357,52 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
                         <div className="relative h-56 overflow-hidden">
                           {otherTheme.heroImage ? (
-                            <Image
-                              src={otherTheme.heroImage}
-                              alt={otherCategory.name}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <>
+                              <Image
+                                src={otherTheme.heroImage}
+                                alt={otherCategory.name}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
+                              
+                              {/* Category Icon for image backgrounds */}
+                              <div className="absolute top-4 right-4">
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                                  <otherTheme.icon className="w-6 h-6 text-white" />
+                                </div>
+                              </div>
+                            </>
                           ) : otherCategory.heroImage ? (
-                            <Image
-                              src={getCategoryImageUrl(otherCategory.heroImage)}
-                              alt={otherCategory.name}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <>
+                              <Image
+                                src={getCategoryImageUrl(otherCategory.heroImage)}
+                                alt={otherCategory.name}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
+                              
+                              {/* Category Icon for image backgrounds */}
+                              <div className="absolute top-4 right-4">
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                                  <otherTheme.icon className="w-6 h-6 text-white" />
+                                </div>
+                              </div>
+                            </>
                           ) : (
-                            <div className={`w-full h-full bg-gradient-to-br ${otherTheme.gradient}`} />
+                            <>
+                              {/* Gradient background with large centered icon */}
+                              <div className={`w-full h-full bg-gradient-to-br ${otherTheme.gradient} flex items-center justify-center`}>
+                                <div className="text-center">
+                                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 group-hover:scale-110 transition-transform duration-300">
+                                    <otherTheme.icon className="w-16 h-16 text-white mx-auto" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
+                            </>
                           )}
-                          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
-                          
-                          {/* Category Icon */}
-                          <div className="absolute top-4 right-4">
-                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
-                              <otherTheme.icon className="w-6 h-6 text-white" />
-                            </div>
-                          </div>
                           
                           {/* Badge */}
                           <div className="absolute top-4 left-4">

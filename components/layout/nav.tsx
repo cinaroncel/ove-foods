@@ -11,6 +11,10 @@ import { cn } from '@/lib/utils'
 
 const navigationItems = [
   {
+    label: 'About Us',
+    href: '/our-story'
+  },
+  {
     label: 'Products',
     href: '/products',
     children: [
@@ -36,8 +40,8 @@ const navigationItems = [
     href: '/recipes'
   },
   {
-    label: 'Our Story',
-    href: '/our-story'
+    label: 'Certifications',
+    href: '/certifications'
   },
   {
     label: 'Sustainability',

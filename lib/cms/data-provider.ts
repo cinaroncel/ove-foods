@@ -191,6 +191,31 @@ export const getLocationById = async (id: string): Promise<Location | null> => {
   }
 };
 
+// About Us
+export const getAboutUsContent = async () => {
+  try {
+    const settingsService = new (await import('@/lib/firebase/firestore')).FirestoreService('settings');
+    const aboutUsSettings = await settingsService.getById('aboutUs');
+    
+    // Return default settings if not found in database
+    if (!aboutUsSettings) {
+      return {
+        text: "Ove Foods' source of richness begins with the olives we harvest. Mainly from mountains and high ridges, these olives—entirely free from air pollution—are hand-picked and pressed within 24 hours to become oil. This is where our journey of quality begins.",
+        images: []
+      };
+    }
+    
+    return aboutUsSettings;
+  } catch (error) {
+    console.warn('Failed to fetch about us content, using defaults:', error);
+    // Fallback to default settings
+    return {
+      text: "Ove Foods' source of richness begins with the olives we harvest. Mainly from mountains and high ridges, these olives—entirely free from air pollution—are hand-picked and pressed within 24 hours to become oil. This is where our journey of quality begins.",
+      images: []
+    };
+  }
+};
+
 // Settings
 export const getHeroSettings = async () => {
   try {

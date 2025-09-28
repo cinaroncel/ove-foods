@@ -10,7 +10,8 @@ import {
   getStoryPosts,
   getSustainabilityMetrics,
   getCategories,
-  getHeroSettings
+  getHeroSettings,
+  getAboutUsContent
 } from '@/lib/cms/data-provider'
 import { generatePageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
@@ -52,6 +53,31 @@ export default async function HomePage() {
         }}
       />
 
+      {/* About Us Section */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto container-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              About Us
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Ove Foods' source of richness begins with the olives we harvest. Mainly from mountains and high ridges, these olives—entirely free from air pollution—are hand-picked and pressed within 24 hours to become oil. This is where our journey of quality begins.
+            </p>
+          </div>
+          
+          <ImageAutoSlider 
+            images={[
+              "/assets/aboutusselfslider/124fad1d-2f09-497d-9db6-0afdafe5ea39.png",
+              "/assets/aboutusselfslider/188c609a-7c52-43b4-80d9-cc01fc936749.png",
+              "/assets/aboutusselfslider/73c5ffa0-3b5f-42ed-9486-17cc9e810126.png",
+              "/assets/aboutusselfslider/oliveoilfacilityimage.jpg",
+              "/assets/aboutusselfslider/output-2.png",
+              "/assets/aboutusselfslider/output-5.png"
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Story Teaser Section */}
       {timelinePosts.length > 0 && (
         <section className="section-padding bg-muted/20 relative">
@@ -70,7 +96,7 @@ export default async function HomePage() {
             
             <div className="text-center">
               <Button asChild size="lg" variant="outline">
-                <Link href="/our-story">Read Our Full Story</Link>
+                <Link href="/our-story">Learn More About Us</Link>
               </Button>
             </div>
           </div>

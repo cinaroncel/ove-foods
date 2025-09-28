@@ -1,5 +1,6 @@
 import { ModernTimeline } from '@/components/blocks/modern-timeline'
 import { Hero } from '@/components/blocks/hero'
+import { ImageAutoSlider } from '@/components/ui/image-auto-slider'
 import { getStoryPosts } from '@/lib/cms/data-provider'
 import { generatePageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
@@ -7,8 +8,8 @@ import type { Metadata } from 'next'
 export const revalidate = 3600 // 1 hour
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Our Story - OVE Foods',
-  description: 'From a small family farm in Tuscany to a global premium food brand, discover the passion and tradition behind OVE Foods.',
+  title: 'About Us - OVE Foods',
+  description: 'From a small family farm in Turkey to a global premium food brand, discover the passion and tradition behind OVE Foods.',
   path: '/our-story'
 })
 
@@ -19,7 +20,7 @@ export default async function OurStoryPage() {
     <>
       {/* Hero Section */}
       <Hero
-        headline="Our Journey"
+        headline="About Us"
         subcopy="From a family olive oil business established in Turkey in 1948 to a global premium food brand, our story spans three generations of dedication to quality and tradition."
         primaryCta={{
           label: "Explore Products",
@@ -34,6 +35,31 @@ export default async function OurStoryPage() {
           poster: "/assets/story-hero.jpg"
         }}
       />
+
+      {/* About Us Section */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto container-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              About Us
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Ove Foods' source of richness begins with the olives we harvest. Mainly from mountains and high ridges, these olives—entirely free from air pollution—are hand-picked and pressed within 24 hours to become oil. This is where our journey of quality begins.
+            </p>
+          </div>
+          
+          <ImageAutoSlider 
+            images={[
+              "/assets/aboutusselfslider/124fad1d-2f09-497d-9db6-0afdafe5ea39.png",
+              "/assets/aboutusselfslider/188c609a-7c52-43b4-80d9-cc01fc936749.png",
+              "/assets/aboutusselfslider/73c5ffa0-3b5f-42ed-9486-17cc9e810126.png",
+              "/assets/aboutusselfslider/oliveoilfacilityimage.jpg",
+              "/assets/aboutusselfslider/output-2.png",
+              "/assets/aboutusselfslider/output-5.png"
+            ]}
+          />
+        </div>
+      </section>
 
       {/* Story Timeline */}
       <section className="section-padding">

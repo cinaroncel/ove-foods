@@ -86,8 +86,10 @@ export const ImageAutoSlider = ({
                     width={320}
                     height={320}
                     className="w-full h-full object-cover"
-                    loading="lazy"
-                    unoptimized
+                    loading={index < 3 ? "eager" : "lazy"}
+                    priority={index < 2}
+                    quality={75}
+                    sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 320px"
                   />
                 </div>
               ))}
