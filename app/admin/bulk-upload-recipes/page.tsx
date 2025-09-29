@@ -11,7 +11,7 @@ const newRecipes = [
     "id": "grilled-lemon-herb-salmon",
     "slug": "grilled-lemon-herb-salmon",
     "title": "Grilled Lemon Herb Salmon with Balsamic Glaze",
-    "heroImage": "salmon-balsamic-hero.jpg",
+    "heroImage": "grilled-salmon-balsamic.jpg",
     "description": "Tender grilled salmon with fresh herbs, finished with our premium balsamic vinegar glaze.",
     "ingredients": [
       { "item": "Salmon fillets", "quantity": 4, "unit": "pieces", "notes": "6 oz each" },
@@ -47,7 +47,7 @@ const newRecipes = [
     "id": "mediterranean-stuffed-peppers",
     "slug": "mediterranean-stuffed-peppers",
     "title": "Mediterranean Stuffed Bell Peppers",
-    "heroImage": "roasted-veggies-hero.jpg",
+    "heroImage": "stuffed-peppers-mediterranean.jpg",
     "description": "Colorful bell peppers stuffed with a flavorful mixture of rice, vegetables, and Mediterranean herbs.",
     "ingredients": [
       { "item": "Large bell peppers", "quantity": 6, "unit": "whole", "notes": "mixed colors" },
@@ -85,7 +85,7 @@ const newRecipes = [
     "id": "classic-spaghetti-aglio-olio",
     "slug": "classic-spaghetti-aglio-olio",
     "title": "Classic Spaghetti Aglio e Olio",
-    "heroImage": "aglio-olio-hero.jpg",
+    "heroImage": "spaghetti-aglio-olio.jpg",
     "description": "The ultimate Italian comfort food - spaghetti with garlic and olive oil, simple yet incredibly flavorful.",
     "ingredients": [
       { "item": "Spaghetti", "quantity": 1, "unit": "lb" },
@@ -121,7 +121,7 @@ const newRecipes = [
     "id": "mediterranean-quinoa-bowl",
     "slug": "mediterranean-quinoa-bowl",
     "title": "Mediterranean Quinoa Power Bowl",
-    "heroImage": "mediterranean-salad-hero.jpg",
+    "heroImage": "quinoa-power-bowl.jpg",
     "description": "A nutritious and colorful quinoa bowl packed with Mediterranean flavors and our premium olive oil.",
     "ingredients": [
       { "item": "Quinoa", "quantity": 1, "unit": "cup", "notes": "rinsed" },
@@ -160,7 +160,7 @@ const newRecipes = [
     "id": "honey-balsamic-chicken",
     "slug": "honey-balsamic-chicken",
     "title": "Honey Balsamic Glazed Chicken Thighs",
-    "heroImage": "herb-chicken-hero.jpg",
+    "heroImage": "honey-balsamic-chicken.jpg",
     "description": "Succulent chicken thighs glazed with honey and our aged balsamic vinegar, roasted to perfection.",
     "ingredients": [
       { "item": "Chicken thighs", "quantity": 8, "unit": "pieces", "notes": "bone-in, skin-on" },
@@ -197,7 +197,7 @@ const newRecipes = [
     "id": "italian-bruschetta",
     "slug": "italian-bruschetta",
     "title": "Classic Italian Bruschetta",
-    "heroImage": "caprese-hero.jpg",
+    "heroImage": "italian-bruschetta.jpg",
     "description": "Fresh tomato and basil bruschetta drizzled with premium olive oil on toasted artisan bread.",
     "ingredients": [
       { "item": "Artisan bread", "quantity": 1, "unit": "loaf", "notes": "sliced thick" },
