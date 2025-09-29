@@ -47,7 +47,7 @@ const newRecipes = [
     "id": "mediterranean-stuffed-peppers",
     "slug": "mediterranean-stuffed-peppers",
     "title": "Mediterranean Stuffed Bell Peppers",
-    "heroImage": "stuffed-peppers-mediterranean.jpg",
+    "heroImage": "https://firebasestorage.googleapis.com/v0/b/ove-foods.firebasestorage.app/o/assets%2Fmediterranean-stuffed-bell-peppers.webp?alt=media",
     "description": "Colorful bell peppers stuffed with a flavorful mixture of rice, vegetables, and Mediterranean herbs.",
     "ingredients": [
       { "item": "Large bell peppers", "quantity": 6, "unit": "whole", "notes": "mixed colors" },
@@ -85,7 +85,7 @@ const newRecipes = [
     "id": "classic-spaghetti-aglio-olio",
     "slug": "classic-spaghetti-aglio-olio",
     "title": "Classic Spaghetti Aglio e Olio",
-    "heroImage": "spaghetti-aglio-olio.jpg",
+    "heroImage": "https://firebasestorage.googleapis.com/v0/b/ove-foods.firebasestorage.app/o/assets%2Fpasta-puttanesca.jpeg?alt=media",
     "description": "The ultimate Italian comfort food - spaghetti with garlic and olive oil, simple yet incredibly flavorful.",
     "ingredients": [
       { "item": "Spaghetti", "quantity": 1, "unit": "lb" },
