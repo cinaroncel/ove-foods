@@ -4,7 +4,7 @@ import RecipesClient from './recipes-client'
 import type { Recipe } from '@/lib/cms/types'
 
 export default async function RecipesPage() {
-  // Server-side data fetching
+  // Server-side data fetching - force fresh data
   const recipes = await getRecipes()
   const tags = getUniqueRecipeTags(recipes)
 
