@@ -3,6 +3,8 @@ import { getUniqueRecipeTags } from '@/lib/search'
 import RecipesClient from './recipes-client'
 import type { Recipe } from '@/lib/cms/types'
 
+export const dynamic = 'force-dynamic' // Force fresh data every time
+
 export default async function RecipesPage() {
   // Server-side data fetching - force fresh data
   const recipes = await getRecipes()
