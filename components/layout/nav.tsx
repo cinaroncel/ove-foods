@@ -18,8 +18,8 @@ const navigationItems = [
     label: 'Products',
     href: '/products',
     children: [
-      { 
-        label: 'Olive Oil', 
+      {
+        label: 'Olive Oil',
         href: '/categories/olive-oils',
         children: [
           { label: 'Organic Extra Virgin Olive Oil', href: '/categories/organic-extra-virgin-olive-oil' },
@@ -34,6 +34,10 @@ const navigationItems = [
       { label: 'Seasoning', href: '/categories/seasoning' },
       { label: 'Gourmet Products', href: '/categories/gourmet-products' },
     ]
+  },
+  {
+    label: 'Our Brands',
+    href: '/brands'
   },
   {
     label: 'Recipes',
