@@ -18,6 +18,7 @@ const footerLinks = {
   ],
   company: [
     { label: 'Our Story', href: '/our-story' },
+    { label: 'Our Brands', href: '/brands' },
     { label: 'Sustainability', href: '/sustainability' },
     { label: 'Where to Buy', href: '/where-to-buy' }
   ],
